@@ -1,0 +1,30 @@
+{
+  "env": {
+    "node": true,
+    "browser": true,
+    "es6": true,
+    "jest": true
+  },
+  "parser": "babel-eslint",
+  "extends": [
+    "airbnb",
+    "prettier",
+    "prettier/react"
+  ],
+  "plugins": [
+    "prettier",
+    "flowtype"
+  ],
+  "rules": {
+    "semi": 0,
+    "global-require": 0,
+    "react/jsx-filename-extension": [1, {"extensions": [".js"]}],
+    "prettier/prettier": [
+      "error", {
+        "semi": false,
+        "singleQuote": true,
+        "trailingComma": "all"
+      }
+    ]
+  }
+}

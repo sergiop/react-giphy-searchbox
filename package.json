@@ -1,7 +1,7 @@
 {
-  "name": "react-giphy-search-and-select",
+  "name": "react-giphy-searchbox",
   "version": "1.0.0",
-  "description": "react-giphy-search-and-select React component",
+  "description": "React Giphy Searchbox",
   "main": "lib/index.js",
   "module": "es/index.js",
   "files": [
@@ -17,14 +17,28 @@
     "start": "nwb serve-react-demo",
     "test": "nwb test-react",
     "test:coverage": "nwb test-react --coverage",
-    "test:watch": "nwb test-react --server"
+    "test:watch": "nwb test-react --server",
+    "flow": "flow"
   },
-  "dependencies": {},
+  "dependencies": {
+    "axios": "^0.19.0"
+  },
   "peerDependencies": {
     "react": "16.x"
   },
   "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.3.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^4.3.0",
+    "eslint-plugin-flowtype": "^3.9.1",
+    "eslint-plugin-import": "^2.17.3",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react": "^7.13.0",
+    "flow-bin": "^0.100.0",
     "nwb": "0.23.x",
+    "prettier": "^1.18.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },

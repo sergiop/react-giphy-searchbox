@@ -5,8 +5,8 @@ module.exports = {
     umd: {
       global: 'ReactGiphySearchAndSelect',
       externals: {
-        react: 'React'
-      }
-    }
-  }
+        react: 'React',
+      },
+    },
+  },
 }
