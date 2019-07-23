@@ -1,0 +1,11 @@
+.form {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.input {
+  padding: 6px 4px;
+  width: 100%;
+  font-size: 1em;
+  font-family: inherit;
+}

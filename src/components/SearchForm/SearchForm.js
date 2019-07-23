@@ -1,5 +1,6 @@
 // @flow
 import React from 'react'
+import styles from './SearchForm.css'
 
 type Props = {
   value: string,
@@ -7,16 +8,17 @@ type Props = {
   onSubmit: Function,
 }
 
-const ReactGiphySearchAndSelect = ({ value, setValue, onSubmit }: Props) => (
-  <form onSubmit={onSubmit} autoComplete="off">
+const SearchForm = ({ value, setValue, onSubmit }: Props) => (
+  <form onSubmit={onSubmit} autoComplete="off" className={styles.form}>
     <input
       type="text"
       placeholder="Search for GIFs"
       onChange={setValue}
       value={value}
       name="search"
+      className={styles.input}
     />
   </form>
 )
 
-export default ReactGiphySearchAndSelect
+export default SearchForm
