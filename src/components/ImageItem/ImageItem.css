@@ -1,0 +1,9 @@
+.imageWrapper {
+  background: #ccc;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
