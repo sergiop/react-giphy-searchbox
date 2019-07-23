@@ -1,0 +1,28 @@
+html {
+  font-family: 'Lato', sans-serif;
+}
+
+.wrapper {
+  margin: 0 auto;
+  width: 290px;
+  font-size: 14px;
+}
+
+@media screen and (min-width: 700px) {
+  .wrapper {
+    width: 620px;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .wrapper {
+    width: 910px;
+  }
+}
+
+.searchBox {
+  border: 1px solid #ddd;
+  display: inline-block;
+  padding: 15px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, .1)
+}

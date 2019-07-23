@@ -1,0 +1,11 @@
+.componentWrapper {
+  box-sizing: border-box;
+}
+
+.componentWrapper *, .componentWrapper *:before, .componentWrapper *:after {
+  box-sizing: inherit;
+}
+
+.listWrapper {
+  overflow-y: auto;
+}
