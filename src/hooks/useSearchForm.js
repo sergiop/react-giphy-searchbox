@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 const useSearchForm = () => {
-  const [searchInput, setInputs] = useState('')
+  const [query, setInputs] = useState('')
 
   const handleSubmit = e => {
     if (e) {
@@ -12,10 +12,11 @@ const useSearchForm = () => {
     e.persist()
     setInputs(e.target.value)
   }
+
   return {
     handleSubmit,
     handleInputChange,
-    searchInput,
+    query,
   }
 }
 
