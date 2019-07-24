@@ -1,7 +1,5 @@
 [ignore]
-<PROJECT_ROOT>/node_modules/
-<PROJECT_ROOT>/demo/src/.*
-<PROJECT_ROOT>/src/.*
+<PROJECT_ROOT>/node_modules/.*
 
 [include]
 

@@ -9,7 +9,8 @@
   "extends": [
     "airbnb",
     "prettier",
-    "prettier/react"
+    "prettier/react",
+    "plugin:flowtype/recommended"
   ],
   "plugins": [
     "prettier",
@@ -25,6 +26,8 @@
         "singleQuote": true,
         "trailingComma": "all"
       }
-    ]
+    ],
+    "react/default-props-match-prop-types": ["error", { "allowRequiredDefaults": true }],
+    "react/require-default-props": ["off"],
   }
 }

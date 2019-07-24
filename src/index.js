@@ -12,6 +12,7 @@ import useSearchForm from './hooks/useSearchForm'
 import useDebounce from './hooks/useDebounce'
 import useMedia from './hooks/useMedia'
 import useApi from './hooks/useApi'
+import spinner from './assets/spinner.svg'
 import {
   getComponentWrapperWidth,
   getDefaultMasonryConfig,
@@ -28,17 +29,18 @@ type MasonryConfig = {
 
 type Props = {
   apiKey: string,
-  gifPerPage?: number,
-  gifListHeight?: string,
-  masonryConfig?: Array<MasonryConfig>,
-  rating?: string,
-  messageNoMatches?: string,
-  messageError?: string,
-  messageLoading?: string,
-  poweredByGiphy?: boolean,
+  gifPerPage: number,
+  gifListHeight: string,
+  masonryConfig: Array<MasonryConfig>,
+  rating: string,
+  messageNoMatches: string,
+  messageError: string,
+  messageLoading: string,
+  loadingImage: string,
+  poweredByGiphy: boolean,
 
-  wrapperClass?: string,
-  wrapperStyle?: Object,
+  wrapperClass: string,
+  wrapperStyle: Object,
 }
 
 const ReactGiphySearchBox = ({
@@ -50,6 +52,7 @@ const ReactGiphySearchBox = ({
   messageNoMatches,
   messageError,
   messageLoading,
+  loadingImage,
   poweredByGiphy,
 
   wrapperClass,
@@ -105,7 +108,7 @@ const ReactGiphySearchBox = ({
 
         <Alert show={error} message={messageError} />
 
-        <Spinner show={loading} />
+        <Spinner show={loading} message={messageLoading} image={loadingImage} />
 
         <InfiniteScroll
           pageStart={0}
@@ -116,7 +119,11 @@ const ReactGiphySearchBox = ({
           loader={
             !firstRun && (
               <div key="loading">
-                <Spinner show={loading} />
+                <Spinner
+                  show={loading}
+                  message={messageLoading}
+                  image={loadingImage}
+                />
               </div>
             )
           }
@@ -139,11 +146,12 @@ const ReactGiphySearchBox = ({
   )
 }
 
+// TODO: create a readme file
 // TODO: add props for styles and class names
 // TODO: add gif onClick action
 // TODO: add loading animation
 // TODO: add dedicated component for output messages (noMatches and error)
-// TODO: props typechecking: flow or proptypes?
+// TODO: props typechecking: flow or propTypes?
 
 ReactGiphySearchBox.defaultProps = {
   gifPerPage: 20,
@@ -157,6 +165,7 @@ ReactGiphySearchBox.defaultProps = {
 
   wrapperClass: '',
   wrapperStyle: {},
+  loadingImage: spinner,
 }
 
 export default ReactGiphySearchBox

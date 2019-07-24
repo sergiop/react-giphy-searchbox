@@ -1,28 +1,22 @@
 // @flow
 import React from 'react'
 import styles from './Spinner.css'
-import spinner from '../../assets/spinner.svg'
 
 type Props = {
   show: boolean,
-  message?: string,
-  spinnerImg?: string,
+  message: string,
+  image: string,
 }
 
-const Spinner = ({ show, message, spinnerImg }: Props) =>
+const Spinner = ({ show, message, image }: Props) =>
   show && (
     <div role="status" className={styles.spinnerWrapper}>
       <div
         className={styles.spinner}
-        style={{ backgroundImage: `url(${spinnerImg})` }}
+        style={{ backgroundImage: `url(${image})` }}
       />
       <div className={styles.spinnerText}>{message}</div>
     </div>
   )
-
-Spinner.defaultProps = {
-  spinnerImg: spinner,
-  message: 'Content is loading...',
-}
 
 export default Spinner
