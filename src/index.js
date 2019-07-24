@@ -12,7 +12,8 @@ import useSearchForm from './hooks/useSearchForm'
 import useDebounce from './hooks/useDebounce'
 import useMedia from './hooks/useMedia'
 import useApi from './hooks/useApi'
-import spinner from './assets/spinner.svg'
+import assetsSpinner from './assets/spinner.svg'
+import assetsPoweredByGiphy from './assets/poweredByGiphy.png'
 import {
   getComponentWrapperWidth,
   getDefaultMasonryConfig,
@@ -29,34 +30,40 @@ type MasonryConfig = {
 
 type Props = {
   apiKey: string,
-  gifPerPage: number,
   gifListHeight: string,
+  gifPerPage: number,
+  listItemClassName: string,
+  listWrapperClassName: string,
+  loadingImage: string,
   masonryConfig: Array<MasonryConfig>,
-  rating: string,
-  messageNoMatches: string,
   messageError: string,
   messageLoading: string,
-  loadingImage: string,
+  messageNoMatches: string,
   poweredByGiphy: boolean,
-
-  wrapperClass: string,
-  wrapperStyle: Object,
+  poweredByGiphyImage: string,
+  rating: string,
+  searchFormClassName: string,
+  searchPlaceholder: string,
+  wrapperClassName: string,
 }
 
 const ReactGiphySearchBox = ({
   apiKey,
-  gifPerPage,
   gifListHeight,
+  gifPerPage,
+  listItemClassName,
+  listWrapperClassName,
+  loadingImage,
   masonryConfig,
-  rating,
-  messageNoMatches,
   messageError,
   messageLoading,
-  loadingImage,
+  messageNoMatches,
   poweredByGiphy,
-
-  wrapperClass,
-  wrapperStyle,
+  poweredByGiphyImage,
+  rating,
+  searchFormClassName,
+  searchPlaceholder,
+  wrapperClassName,
 }: Props) => {
   const { query, handleInputChange, handleSubmit } = useSearchForm()
   const debouncedQuery = useDebounce(query, 500)
@@ -87,20 +94,22 @@ const ReactGiphySearchBox = ({
 
   return (
     <div
-      className={`${styles.componentWrapper} ${wrapperClass}`}
-      style={Object.assign(
-        { width: getComponentWrapperWidth(masonryConfigMatchMedia) },
-        wrapperStyle,
-      )}
+      className={`${styles.componentWrapper} ${wrapperClassName}`}
+      style={{ width: getComponentWrapperWidth(masonryConfigMatchMedia) }}
     >
       <SearchForm
         value={query}
         setValue={handleInputChange}
         onSubmit={handleSubmit}
         loadingData={loading}
+        searchFormClassName={searchFormClassName}
+        placeholder={searchPlaceholder}
       />
 
-      <div className={styles.listWrapper} style={{ height: gifListHeight }}>
+      <div
+        className={`${styles.listWrapper} ${listWrapperClassName}`}
+        style={{ height: gifListHeight }}
+      >
         <Alert
           show={data.length === 0 && !loading && !error && !firstRun}
           message={messageNoMatches}
@@ -135,37 +144,37 @@ const ReactGiphySearchBox = ({
                   item={item}
                   size={masonryConfigMatchMedia.imageWidth}
                   key={item.id}
+                  listItemClassName={listItemClassName}
                 />
               ))}
             </MasonryLayout>
           )}
         </InfiniteScroll>
       </div>
-      {poweredByGiphy && <PoweredByGiphy />}
+      {poweredByGiphy && <PoweredByGiphy image={poweredByGiphyImage} />}
     </div>
   )
 }
 
 // TODO: create a readme file
-// TODO: add props for styles and class names
 // TODO: add gif onClick action
-// TODO: add loading animation
-// TODO: add dedicated component for output messages (noMatches and error)
-// TODO: props typechecking: flow or propTypes?
 
 ReactGiphySearchBox.defaultProps = {
-  gifPerPage: 20,
   gifListHeight: '300px',
+  gifPerPage: 20,
+  listItemClassName: '',
+  listWrapperClassName: '',
+  loadingImage: assetsSpinner,
   masonryConfig: [{ columns: 2, imageWidth: 120, gutter: 5 }],
-  rating: 'g',
-  messageNoMatches: 'No matches found.',
   messageError: 'Oops! Something went wrong. Please, try again.',
   messageLoading: 'Loading...',
+  messageNoMatches: 'No matches found.',
   poweredByGiphy: true,
-
-  wrapperClass: '',
-  wrapperStyle: {},
-  loadingImage: spinner,
+  poweredByGiphyImage: assetsPoweredByGiphy,
+  rating: 'g',
+  searchFormClassName: '',
+  wrapperClassName: '',
+  searchPlaceholder: 'Search for GIFs',
 }
 
 export default ReactGiphySearchBox

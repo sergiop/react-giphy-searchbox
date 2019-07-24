@@ -5,12 +5,13 @@ import styles from './ImageItem.css'
 type Props = {
   item: Object,
   size: number,
+  listItemClassName: string,
 }
 
-const ImageItem = ({ item, size }: Props) => {
+const ImageItem = ({ item, size, listItemClassName }: Props) => {
   return (
     <div
-      className={styles.imageWrapper}
+      className={`${styles.imageWrapper} ${listItemClassName}`}
       style={{
         width: `${size}px`,
         height: `${(item.images.fixed_width_downsampled.height * size) /

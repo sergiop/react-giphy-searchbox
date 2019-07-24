@@ -3,16 +3,28 @@ import React from 'react'
 import styles from './SearchForm.css'
 
 type Props = {
-  value: string,
-  setValue: Function,
   onSubmit: Function,
+  placeholder: string,
+  searchFormClassName: string,
+  setValue: Function,
+  value: string,
 }
 
-const SearchForm = ({ value, setValue, onSubmit }: Props) => (
-  <form onSubmit={onSubmit} autoComplete="off" className={styles.form}>
+const SearchForm = ({
+  onSubmit,
+  placeholder,
+  searchFormClassName,
+  setValue,
+  value,
+}: Props) => (
+  <form
+    onSubmit={onSubmit}
+    autoComplete="off"
+    className={`${styles.form}  ${searchFormClassName}`}
+  >
     <input
       type="text"
-      placeholder="Search for GIFs"
+      placeholder={placeholder}
       onChange={setValue}
       value={value}
       name="search"

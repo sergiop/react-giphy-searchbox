@@ -1,11 +1,14 @@
 // @flow
 import React from 'react'
 import styles from './PoweredByGiphy.css'
-import poweredByGiphy from '../../assets/poweredByGiphy.png'
 
-const PoweredByGiphy = () => (
+type Props = {
+  image: string,
+}
+
+const PoweredByGiphy = ({ image }: Props) => (
   <div className={styles.poweredByGiphy}>
-    <img src={poweredByGiphy} alt="Powered by Giphy" />
+    <img src={image} alt="Powered by Giphy" />
   </div>
 )
 
