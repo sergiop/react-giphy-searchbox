@@ -1,8 +1,11 @@
-import React, { useRef, useEffect } from 'react'
+/* eslint-disable import/no-duplicates */
+// @flow
+import * as React from 'react'
+import { useRef, useEffect, Children } from 'react'
 import Bricks from 'bricks.js'
 
 type Props = {
-  children: React.node,
+  children: React.Node,
   sizes: Array<Object>,
 }
 
@@ -19,7 +22,7 @@ const MasonryLayout = ({ children, sizes }: Props) => {
 
     bricks.resize(true)
 
-    if (children.length > 0) {
+    if (Children.count(children) > 0) {
       bricks.pack()
     }
   }, [children])
