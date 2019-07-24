@@ -25,6 +25,28 @@ describe('dataFetchReducer', () => {
     const [state] = result.current
 
     expect(state).toEqual({
+      data: [],
+      loading: true,
+      error: false,
+      lastPage: false,
+    })
+  })
+
+  test('FETCH_MORE_INIT action', () => {
+    expect.assertions(1)
+
+    const { result } = renderHook(() =>
+      useReducer(dataFetchReducer, initialState),
+    )
+    const [, dispatch] = result.current
+
+    act(() => {
+      dispatch({ type: 'FETCH_MORE_INIT' })
+    })
+
+    const [state] = result.current
+
+    expect(state).toEqual({
       data: [{ foo: 'foo' }],
       loading: true,
       error: false,
