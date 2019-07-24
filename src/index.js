@@ -39,6 +39,7 @@ type Props = {
   messageError: string,
   messageLoading: string,
   messageNoMatches: string,
+  onSelect: Function,
   poweredByGiphy: boolean,
   poweredByGiphyImage: string,
   rating: string,
@@ -58,6 +59,7 @@ const ReactGiphySearchBox = ({
   messageError,
   messageLoading,
   messageNoMatches,
+  onSelect,
   poweredByGiphy,
   poweredByGiphyImage,
   rating,
@@ -145,6 +147,7 @@ const ReactGiphySearchBox = ({
                   size={masonryConfigMatchMedia.imageWidth}
                   key={item.id}
                   listItemClassName={listItemClassName}
+                  onSelect={onSelect}
                 />
               ))}
             </MasonryLayout>
@@ -155,9 +158,6 @@ const ReactGiphySearchBox = ({
     </div>
   )
 }
-
-// TODO: create a readme file
-// TODO: add gif onClick action
 
 ReactGiphySearchBox.defaultProps = {
   gifListHeight: '300px',

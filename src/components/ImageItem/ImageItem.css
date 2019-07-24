@@ -1,5 +1,15 @@
-.imageWrapper {
+.imageButton {
   background: #ccc;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+.imageButton:focus {
+  opacity: 0.6;
 }
 
 .image {

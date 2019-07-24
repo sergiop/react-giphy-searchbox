@@ -19,6 +19,7 @@ const Demo = () => (
       /> */}
       <ReactGiphySearchBox
         apiKey="9Ixlv3DWC1biJRI57RanyL7RTbfzz0o7"
+        onSelect={item => console.log(item)}
         // wrapperClass="pippo"
         // wrapperStyle={{ backgroundColor: 'red' }}
       />

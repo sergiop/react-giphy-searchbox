@@ -4,19 +4,22 @@ import styles from './ImageItem.css'
 
 type Props = {
   item: Object,
-  size: number,
   listItemClassName: string,
+  onSelect: Function,
+  size: number,
 }
 
-const ImageItem = ({ item, size, listItemClassName }: Props) => {
+const ImageItem = ({ item, size, listItemClassName, onSelect }: Props) => {
   return (
-    <div
-      className={`${styles.imageWrapper} ${listItemClassName}`}
+    <button
+      type="button"
+      className={`${styles.imageButton} ${listItemClassName}`}
       style={{
         width: `${size}px`,
         height: `${(item.images.fixed_width_downsampled.height * size) /
           item.images.fixed_width_downsampled.width}px`,
       }}
+      onClick={() => onSelect(item)}
     >
       <img
         width={item.images.fixed_width_downsampled.width}
@@ -25,7 +28,7 @@ const ImageItem = ({ item, size, listItemClassName }: Props) => {
         src={item.images.fixed_width_downsampled.url}
         className={styles.image}
       />
-    </div>
+    </button>
   )
 }
 

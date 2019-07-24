@@ -8,4 +8,10 @@
   width: 100%;
   font-size: 1em;
   font-family: inherit;
+  outline: none;
+  border: 1px solid #ddd;
+}
+
+.input:focus {
+  border-color: #bbb;
 }
