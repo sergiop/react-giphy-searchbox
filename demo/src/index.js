@@ -19,9 +19,8 @@ const Demo = () => (
       /> */}
       <ReactGiphySearchBox
         apiKey="9Ixlv3DWC1biJRI57RanyL7RTbfzz0o7"
+        // eslint-disable-next-line no-console
         onSelect={item => console.log(item)}
-        // wrapperClass="pippo"
-        // wrapperStyle={{ backgroundColor: 'red' }}
       />
     </div>
   </div>
