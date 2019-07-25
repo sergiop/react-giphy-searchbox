@@ -1,3 +1,4 @@
-flow-typed
-node_modules
-coverage
+/flow-typed
+/node_modules
+/coverage
+/es
