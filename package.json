@@ -59,11 +59,11 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
-  "author": "",
-  "homepage": "",
+  "author": "Sergio Pedercini",
+  "homepage": "https://github.com/sergiop/react-giphy-searchbox",
   "license": "MIT",
-  "repository": "",
+  "repository": "github:sergiop/react-giphy-searchbox",
   "keywords": [
-    "react-component"
+    "react-component", "giphy", "selector", "masonry", "giphy-search"
   ]
 }
