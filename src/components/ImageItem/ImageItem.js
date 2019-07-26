@@ -1,6 +1,6 @@
 // @flow
 import React from 'react'
-import styles from './ImageItem.css'
+import styles from './ImageItem.module.css'
 
 type Props = {
   item: Object,

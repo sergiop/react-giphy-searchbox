@@ -1,7 +1,7 @@
 // @flow
 import React, { useEffect, useRef, useState } from 'react'
 import InfiniteScroll from 'react-infinite-scroller'
-import styles from './index.css'
+import styles from './index.module.css'
 import SearchForm from './components/SearchForm/SearchForm'
 import ImageItem from './components/ImageItem/ImageItem'
 import PoweredByGiphy from './components/PoweredByGiphy/PoweredByGiphy'
