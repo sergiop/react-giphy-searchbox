@@ -1,3 +1,5 @@
+const path = require('path')
+
 module.exports = {
   type: 'react-component',
   npm: {
@@ -10,6 +12,9 @@ module.exports = {
     },
   },
   webpack: {
+    aliases: {
+      assets: path.resolve('src/assets'),
+    },
     rules: {
       css: {
         modules: true,

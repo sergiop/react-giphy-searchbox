@@ -8,7 +8,9 @@ Responsive and customizable search and select for Giphy's GIFs.
 
 > **Note:** The searchbox shows the user trending GIFs, switching to searched results once the user starts typing something in the search field.
 
-<img width="305" alt="react-giphy-searchbox-screen" src="https://user-images.githubusercontent.com/2235134/61870847-77a8c500-aedf-11e9-8e48-08171560e0ab.png">
+<img width="305" style="position:relative; left: -14px" alt="react-giphy-searchbox-screen" src="https://user-images.githubusercontent.com/2235134/61870847-77a8c500-aedf-11e9-8e48-08171560e0ab.png">
+
+[![Edit react-giphy-searchbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/react-giphy-searchbox-l8dxc?fontsize=14)
 
 ## Getting started
 
