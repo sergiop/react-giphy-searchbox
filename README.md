@@ -1,14 +1,25 @@
-# React Giphy Searchbox
+<p align="center">
+  <img width="170" src="logo.svg" alt="React Giphy Searchbox Logo">
+</p>
+
+<h3 align="center">
+  Responsive and customizable search and select for Giphy's GIFs.
+</h3>
+
+<br>
 
 [![Travis][build-badge]][build]
 [![npm package][npm-badge]][npm]
 [![Codecov][codecov-badge]][Codecov]
 
-Responsive and customizable search and select for Giphy's GIFs.
 
-> **Note:** The searchbox shows the user trending GIFs, switching to searched results once the user starts typing something in the search field.
+---
 
-<img width="305" style="position:relative; left: -14px" alt="react-giphy-searchbox-screen" src="https://user-images.githubusercontent.com/2235134/61870847-77a8c500-aedf-11e9-8e48-08171560e0ab.png">
+ **React Giphy Searchbox is a powerful react component that returns Giphy's GIF in a Masonry grid layout.** Initially the component displays trending GIFs from Giphy's feed, when the the user starts typing something in the search field it switches to searched results. When an image is selected, a [GIF object](https://developers.giphy.com/docs/api/schema/#gif-object) is returned.
+
+<p align="center">
+<img width="442" alt="React Giphy Searchbox preview" src="https://user-images.githubusercontent.com/2235134/61965849-8bccef00-afd1-11e9-9170-801a992e72bf.png">
+</p>
 
 [![Edit react-giphy-searchbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/react-giphy-searchbox-l8dxc?fontsize=14)
 
@@ -24,7 +35,7 @@ yarn add react-giphy-searchbox
 npm install react-giphy-searchbox --save
 ```
 
-### Basic Example
+### Basic example
 
 ```javascript
 import React from 'react'
