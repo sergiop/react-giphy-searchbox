@@ -1,6 +1,6 @@
 // @flow
 import React from 'react'
-import styles from './SearchForm.css'
+import styles from './SearchForm.module.css'
 
 type Props = {
   onSubmit: Function,

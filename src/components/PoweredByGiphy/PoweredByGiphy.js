@@ -1,6 +1,6 @@
 // @flow
 import React from 'react'
-import styles from './PoweredByGiphy.css'
+import styles from './PoweredByGiphy.module.css'
 
 type Props = {
   image: string,

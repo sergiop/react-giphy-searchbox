@@ -4,7 +4,7 @@
 import React from 'react'
 import { render } from 'react-dom'
 import ReactGiphySearchBox from '../../src'
-import styles from './index.css'
+import styles from './index.module.css'
 
 const Demo = () => (
   <div className={styles.wrapper}>

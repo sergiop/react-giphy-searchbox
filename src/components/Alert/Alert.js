@@ -1,6 +1,6 @@
 // @flow
 import React from 'react'
-import styles from './Alert.css'
+import styles from './Alert.module.css'
 
 type Props = {
   show: boolean,
