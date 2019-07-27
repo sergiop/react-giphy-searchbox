@@ -1,10 +1,12 @@
-<p align="center">
-  <img width="170" src="logo.svg" alt="React Giphy Searchbox Logo">
-</p>
+<header style="background: #f3f5f9; padding-top: 25px; padding-right: 15px; padding-bottom: 5px; padding-left: 15px;">
+  <p align="center">
+    <img width="170" src="logo.svg" alt="React Giphy Searchbox Logo" style="background-color: transparent">
+  </p>
 
-<h3 align="center">
-  Responsive and customizable search and select for Giphy's GIFs.
-</h3>
+  <h3 align="center">
+    Responsive and customizable search and select for Giphy's GIFs.
+  </h3>
+</header>
 
 <br>
 
@@ -20,6 +22,10 @@
 <p align="center">
 <img width="442" alt="React Giphy Searchbox preview" src="https://user-images.githubusercontent.com/2235134/61965849-8bccef00-afd1-11e9-9170-801a992e72bf.png">
 </p>
+
+## Demo
+
+Play with a simple responsive demo on [CodeSandbox](https://codesandbox.io/s/react-giphy-searchbox-l8dxc?fontsize=14)
 
 [![Edit react-giphy-searchbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/react-giphy-searchbox-l8dxc?fontsize=14)
 
