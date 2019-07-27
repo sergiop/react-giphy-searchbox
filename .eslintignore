@@ -2,3 +2,5 @@
 /node_modules
 /coverage
 /es
+/lib
+/demo/dist
