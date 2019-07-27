@@ -4,12 +4,7 @@ module.exports = {
   type: 'react-component',
   npm: {
     esModules: true,
-    umd: {
-      global: 'ReactGiphySearchbox',
-      externals: {
-        react: 'React',
-      },
-    },
+    umd: false,
   },
   webpack: {
     aliases: {
@@ -18,10 +13,7 @@ module.exports = {
     rules: {
       css: {
         modules: true,
-        localIdentName:
-          process.env.NODE_ENV === 'production'
-            ? '[hash:base64:5]'
-            : '[path][name]-[local]-[hash:base64:5]',
+        localIdentName: '[local]__[hash:base64:5]',
       },
     },
     html: {

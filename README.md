@@ -1,12 +1,10 @@
-<header style="background: #f3f5f9; padding-top: 25px; padding-right: 15px; padding-bottom: 5px; padding-left: 15px;">
-  <p align="center">
-    <img width="170" src="logo.svg" alt="React Giphy Searchbox Logo" style="background-color: transparent">
-  </p>
+<p align="center">
+  <img width="180" src="logo.svg" alt="React Giphy Searchbox Logo" style="background-color: transparent">
+</p>
 
-  <h3 align="center">
-    Responsive and customizable search and select for Giphy's GIFs.
-  </h3>
-</header>
+<h3 align="center">
+  Responsive and customizable search and select for Giphy's GIFs.
+</h3>
 
 <br>
 
