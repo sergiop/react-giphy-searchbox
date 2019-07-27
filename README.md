@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="170" src="logo.svg" alt="React Giphy Searchbox Logo">
+  <img width="180" src="logo.svg" alt="React Giphy Searchbox Logo" style="background-color: transparent">
 </p>
 
 <h3 align="center">
@@ -20,6 +20,10 @@
 <p align="center">
 <img width="442" alt="React Giphy Searchbox preview" src="https://user-images.githubusercontent.com/2235134/61965849-8bccef00-afd1-11e9-9170-801a992e72bf.png">
 </p>
+
+## Demo
+
+Play with a simple responsive demo on [CodeSandbox](https://codesandbox.io/s/react-giphy-searchbox-l8dxc?fontsize=14)
 
 [![Edit react-giphy-searchbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/react-giphy-searchbox-l8dxc?fontsize=14)
 

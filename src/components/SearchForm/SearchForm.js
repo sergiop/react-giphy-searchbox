@@ -20,7 +20,9 @@ const SearchForm = ({
   <form
     onSubmit={onSubmit}
     autoComplete="off"
-    className={`${styles.form}  ${searchFormClassName}`}
+    className={`${styles.form}${
+      searchFormClassName ? ` ${searchFormClassName}` : ''
+    }`}
   >
     <input
       type="text"

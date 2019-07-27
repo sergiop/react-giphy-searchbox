@@ -12,7 +12,9 @@ type Props = {
 const ImageItem = ({ item, size, listItemClassName, onSelect }: Props) => (
   <button
     type="button"
-    className={`${styles.imageButton} ${listItemClassName}`}
+    className={`${styles.imageButton}${
+      listItemClassName ? ` ${listItemClassName}` : ''
+    }`}
     style={{
       width: `${size}px`,
       height: `${(item.images.fixed_width_downsampled.height * size) /

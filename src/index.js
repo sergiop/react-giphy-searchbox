@@ -96,7 +96,9 @@ const ReactGiphySearchBox = ({
 
   return (
     <div
-      className={`${styles.componentWrapper} ${wrapperClassName}`}
+      className={`${styles.componentWrapper}${
+        wrapperClassName ? ` ${wrapperClassName}` : ''
+      }`}
       style={{ width: getComponentWrapperWidth(masonryConfigMatchMedia) }}
     >
       <SearchForm
@@ -109,7 +111,9 @@ const ReactGiphySearchBox = ({
       />
 
       <div
-        className={`${styles.listWrapper} ${listWrapperClassName}`}
+        className={`${styles.listWrapper}${
+          listWrapperClassName ? ` ${listWrapperClassName}` : ''
+        }`}
         style={{ height: gifListHeight }}
       >
         <Alert

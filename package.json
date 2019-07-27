@@ -1,6 +1,6 @@
 {
   "name": "react-giphy-searchbox",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "React Giphy Searchbox",
   "main": "lib/index.js",
   "module": "es/index.js",
