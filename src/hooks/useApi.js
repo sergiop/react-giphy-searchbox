@@ -34,8 +34,7 @@ const useApi = () => {
           })
         }
       })
-      .catch((error) => {
-        console.log(error)
+      .catch(() => {
         dispatch({ type: 'FETCH_FAILURE' })
       })
   }
