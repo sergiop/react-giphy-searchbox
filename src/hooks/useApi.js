@@ -10,33 +10,36 @@ const useApi = () => {
     lastPage: false,
   })
 
-  const fetch = async (url, isMore) => {
+  const fetch = (url, isMore) => {
     if (isMore) {
       dispatch({ type: 'FETCH_MORE_INIT' })
     } else {
       dispatch({ type: 'FETCH_INIT' })
     }
 
-    try {
-      const result = await axios(url)
-
-      if (isMore) {
-        dispatch({
-          type: 'FETCH_MORE_SUCCESS',
-          payload: result.data.data,
-          pagination: result.data.pagination,
-        })
-      } else {
-        dispatch({
-          type: 'FETCH_SUCCESS',
-          payload: result.data.data,
-          pagination: result.data.pagination,
-        })
-      }
-    } catch (error) {
-      dispatch({ type: 'FETCH_FAILURE' })
-    }
+    axios
+      .get(url)
+      .then(response => {
+        if (isMore) {
+          dispatch({
+            type: 'FETCH_MORE_SUCCESS',
+            payload: response.data.data,
+            pagination: response.data.pagination,
+          })
+        } else {
+          dispatch({
+            type: 'FETCH_SUCCESS',
+            payload: response.data.data,
+            pagination: response.data.pagination,
+          })
+        }
+      })
+      .catch((error) => {
+        console.log(error)
+        dispatch({ type: 'FETCH_FAILURE' })
+      })
   }
+
   return [state, fetch]
 }
 

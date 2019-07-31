@@ -8,7 +8,7 @@ type Props = {
 
 const PoweredByGiphy = ({ image }: Props) => (
   <div className={styles.poweredByGiphy}>
-    <img src={image} alt="Powered by Giphy" />
+    <img src={image} alt="Powered by Giphy" data-testid="PoweredByGiphy" />
   </div>
 )
 
