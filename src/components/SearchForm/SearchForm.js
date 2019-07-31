@@ -18,6 +18,7 @@ const SearchForm = ({
   value,
 }: Props) => (
   <form
+    data-testid="SearchFormForm"
     onSubmit={onSubmit}
     autoComplete="off"
     className={`${styles.form}${
@@ -25,6 +26,7 @@ const SearchForm = ({
     }`}
   >
     <input
+      data-testid="SearchFormInput"
       type="text"
       placeholder={placeholder}
       onChange={setValue}

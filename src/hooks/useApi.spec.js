@@ -3,6 +3,11 @@ import MockAdapter from 'axios-mock-adapter'
 import { renderHook, act } from '@testing-library/react-hooks'
 import useApi from './useApi'
 
+// Unmock Jest Axios mock used in index.spec.js to allow the use of 'axios-mock-adapter' module
+// TODO: this test should be rewritten with Jest Axios mock, instead of 'axios-mock-adapter'
+// No need to use two different kind of axios mock.
+jest.unmock('axios')
+
 describe('useApi', () => {
   const fetchingValues = {
     loading: true,

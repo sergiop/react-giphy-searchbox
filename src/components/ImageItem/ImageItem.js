@@ -11,6 +11,7 @@ type Props = {
 
 const ImageItem = ({ item, size, listItemClassName, onSelect }: Props) => (
   <button
+    data-testid="ImageItemButton"
     type="button"
     className={`${styles.imageButton}${
       listItemClassName ? ` ${listItemClassName}` : ''
@@ -23,6 +24,7 @@ const ImageItem = ({ item, size, listItemClassName, onSelect }: Props) => (
     onClick={() => onSelect(item)}
   >
     <img
+      data-testid="ImageItemImage"
       width={item.images.fixed_width_downsampled.width}
       height={item.images.fixed_width_downsampled.height}
       alt={item.title}

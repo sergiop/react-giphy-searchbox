@@ -9,7 +9,7 @@ type Props = {
 
 const Alert = ({ show, message }: Props) =>
   show && (
-    <p role="alert" className={styles.message}>
+    <p role="alert" data-testid="Alert" className={styles.message}>
       {message}
     </p>
   )

@@ -14,8 +14,11 @@ const Spinner = ({ show, message, image }: Props) =>
       <div
         className={styles.spinner}
         style={{ backgroundImage: `url(${image})` }}
+        data-testid="Spinner"
       />
-      <div className={styles.spinnerText}>{message}</div>
+      <div className={styles.spinnerText} data-testid="SpinnerText">
+        {message}
+      </div>
     </div>
   )
 

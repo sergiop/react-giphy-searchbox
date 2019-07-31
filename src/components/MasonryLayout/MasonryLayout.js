@@ -27,7 +27,11 @@ const MasonryLayout = ({ children, sizes }: Props) => {
     }
   }, [children])
 
-  return <div ref={container}>{children}</div>
+  return (
+    <div ref={container} data-testid="MasonryLayoutContainer">
+      {children}
+    </div>
+  )
 }
 
 export default MasonryLayout
