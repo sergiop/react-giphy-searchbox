@@ -31,6 +31,7 @@
   },
   "devDependencies": {
     "@babel/preset-env": "^7.5.4",
+    "@babel/preset-flow": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
     "@testing-library/jest-dom": "^4.0.0",
     "@testing-library/react": "^8.0.5",
@@ -39,9 +40,6 @@
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.8.0",
     "babel-polyfill": "^6.26.0",
-    "enzyme": "^3.10.0",
-    "enzyme-adapter-react-16": "^1.14.0",
-    "enzyme-to-json": "^3.3.5",
     "eslint": "^5.3.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^4.3.0",
@@ -52,18 +50,24 @@
     "eslint-plugin-react": "^7.13.0",
     "flow-bin": "^0.103.0",
     "flow-typed": "^2.6.0",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^24.8.0",
     "match-media-mock": "^0.1.1",
     "nwb": "0.23.x",
     "prettier": "^1.18.2",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "react-test-renderer": "^16.8.6"
   },
   "author": "Sergio Pedercini",
   "homepage": "https://github.com/sergiop/react-giphy-searchbox",
   "license": "MIT",
   "repository": "github:sergiop/react-giphy-searchbox",
   "keywords": [
-    "react-component", "giphy", "selector", "masonry", "giphy-search"
+    "react-component",
+    "giphy",
+    "selector",
+    "masonry",
+    "giphy-search"
   ]
 }
