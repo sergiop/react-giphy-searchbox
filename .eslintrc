@@ -29,5 +29,6 @@
     ],
     "react/default-props-match-prop-types": ["error", { "allowRequiredDefaults": true }],
     "react/require-default-props": ["off"],
+    "react/jsx-props-no-spreading": 0
   }
 }
