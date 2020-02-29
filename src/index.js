@@ -32,6 +32,8 @@ type Props = {
   apiKey: string,
   gifListHeight: string,
   gifPerPage: number,
+  imageBackgroundColor: string,
+  library: 'gifs' | 'stickers',
   listItemClassName: string,
   listWrapperClassName: string,
   loadingImage: string,
@@ -52,6 +54,8 @@ const ReactGiphySearchBox = ({
   apiKey,
   gifListHeight,
   gifPerPage,
+  imageBackgroundColor,
+  library,
   listItemClassName,
   listWrapperClassName,
   loadingImage,
@@ -72,7 +76,7 @@ const ReactGiphySearchBox = ({
 
   const apiEndpoint = query ? 'search' : 'trending'
   const apiUrl = offset =>
-    `https://api.giphy.com/v1/gifs/${apiEndpoint}?api_key=${apiKey}&limit=${gifPerPage}&rating=${rating}&offset=${offset}&q=${query}`
+    `https://api.giphy.com/v1/${library}/${apiEndpoint}?api_key=${apiKey}&limit=${gifPerPage}&rating=${rating}&offset=${offset}&q=${query}`
 
   const [{ data, loading, error, lastPage }, fetch] = useApi()
 
@@ -152,6 +156,7 @@ const ReactGiphySearchBox = ({
                   key={item.id}
                   listItemClassName={listItemClassName}
                   onSelect={onSelect}
+                  backgroundColor={imageBackgroundColor}
                 />
               ))}
             </MasonryLayout>
@@ -166,6 +171,8 @@ const ReactGiphySearchBox = ({
 ReactGiphySearchBox.defaultProps = {
   gifListHeight: '300px',
   gifPerPage: 20,
+  imageBackgroundColor: '#eee',
+  library: 'gifs',
   listItemClassName: '',
   listWrapperClassName: '',
   loadingImage: assetsSpinner,
