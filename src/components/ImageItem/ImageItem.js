@@ -3,13 +3,20 @@ import React from 'react'
 import styles from './ImageItem.module.css'
 
 type Props = {
+  backgroundColor: string,
   item: Object,
   listItemClassName: string,
   onSelect: Function,
   size: number,
 }
 
-const ImageItem = ({ item, size, listItemClassName, onSelect }: Props) => (
+const ImageItem = ({
+  backgroundColor,
+  item,
+  size,
+  listItemClassName,
+  onSelect,
+}: Props) => (
   <button
     data-testid="ImageItemButton"
     type="button"
@@ -17,6 +24,7 @@ const ImageItem = ({ item, size, listItemClassName, onSelect }: Props) => (
       listItemClassName ? ` ${listItemClassName}` : ''
     }`}
     style={{
+      backgroundColor,
       width: `${size}px`,
       height: `${(item.images.fixed_width_downsampled.height * size) /
         item.images.fixed_width_downsampled.width}px`,

@@ -18,37 +18,45 @@ describe('ImageItem', () => {
     listItemClassName: '',
     onSelect,
     size: 200,
+    backgroundColor: '#eee',
   }
 
   const buildSubject = (props = defaults) => render(<ImageItem {...props} />)
 
   test('render the image with the proper attributes', () => {
     const { getByTestId } = buildSubject()
+    const image = getByTestId('ImageItemImage')
 
-    expect(getByTestId('ImageItemImage').getAttribute('width')).toBe(
+    expect(image.getAttribute('width')).toBe(
       defaults.item.images.fixed_width_downsampled.width.toString(),
     )
-    expect(getByTestId('ImageItemImage').getAttribute('height')).toBe(
+    expect(image.getAttribute('height')).toBe(
       defaults.item.images.fixed_width_downsampled.height.toString(),
     )
-    expect(getByTestId('ImageItemImage').getAttribute('alt')).toBe(
-      defaults.item.title,
-    )
-    expect(getByTestId('ImageItemImage').getAttribute('src')).toBe(
+    expect(image.getAttribute('alt')).toBe(defaults.item.title)
+    expect(image.getAttribute('src')).toBe(
       defaults.item.images.fixed_width_downsampled.url,
     )
-    expect(getByTestId('ImageItemImage').getAttribute('class')).toBe('image')
+    expect(image.getAttribute('class')).toBe('image')
   })
 
   test('render the button', () => {
     const { getByTestId } = buildSubject()
+    const button = getByTestId('ImageItemButton')
 
-    expect(getByTestId('ImageItemButton').getAttribute('class')).toBe(
-      'imageButton',
+    expect(button.getAttribute('class')).toBe('imageButton')
+    expect(button.getAttribute('type')).toBe('button')
+    expect(button.getAttribute('style')).toBe(
+      'background-color: rgb(238, 238, 238); width: 200px; height: 248px;',
     )
-    expect(getByTestId('ImageItemButton').getAttribute('type')).toBe('button')
+  })
+
+  test('render the button with a custom background color', () => {
+    const props = { ...defaults, backgroundColor: '#f00' }
+    const { getByTestId } = buildSubject(props)
+
     expect(getByTestId('ImageItemButton').getAttribute('style')).toBe(
-      'width: 200px; height: 248px;',
+      'background-color: rgb(255, 0, 0); width: 200px; height: 248px;',
     )
   })
 

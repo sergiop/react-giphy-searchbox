@@ -60,23 +60,25 @@ render(<App />, document.getElementById("root"))
 
 | Prop                   | Type     | Desc                                                                                                                                                                                                            |
 | ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `apiKey`               | string   | **REQUIRED:** Giphy's API key. Get your on https://developers.giphy.com.                                                                                                                                         |
-| `onSelect`             | function | **REQUIRED** A callback which is triggered whenever a GIF is selected. It returns a Gif object in the format specified for an image from Giphy's API.                                                            |
+| `apiKey`               | string   | **REQUIRED:** Giphy's API key. Get your on https://developers.giphy.com.                                                                                                                                        |
+| `onSelect`             | function | **REQUIRED** A callback which is triggered whenever a GIF is selected. It returns a Gif object in the format specified for an image from Giphy's API.                                                           |
+| `libray`               | string   | Giphy's library: choose between `gifs` or `stickers`. <br />*Default:* `gifs`                                                                                                                                                    |
 | `rating`               | string   | Filters results by [specified rating](https://developers.giphy.com/docs/optional-settings/#rating). <br />*Default:* `g`                                                                                        |
 | `gifPerPage`           | number   | The maximum number of images to return per page. <br />*Default:* `20`                                                                                                                                          |
 | `masonryConfig`        | array    | An array of objects describing the masonry's properties at different breakpoints. [See specific chapter for further info.](#responsive-options) <br />*Default:* `[{ columns: 2, imageWidth: 120, gutter: 5 }]` |
-| `gifListHeight`        | string   | The height of the returned GIF list. <br />*Default:* `300px`                                                                                                                                                    |
-| `messageError`         | string   | Generic errror message when APIs call fails. <br />*Default:* `Oops! Something went wrong. Please, try again.`                                                                                                  |
+| `gifListHeight`        | string   | The height of the returned GIF list. <br />*Default:* `300px`                                                                                                                                                   |
+| `messageError`         | string   | Generic error message when APIs call fails. <br />*Default:* `Oops! Something went wrong. Please, try again.`                                                                                                   |
 | `messageLoading`       | string   | Loading message only for accessibility purposes. <br />*Default:* `Loading...`                                                                                                                                  |
 | `messageNoMatches`     | string   | Message to tell users searched string returned empty array. <br />*Default:* `No matches found.`                                                                                                                |
 | `loadingImage`         | string   | If you want to customize the loading spinner, use this prop to set an alternative `src` for the image.                                                                                                          |
 | `poweredByGiphy`       | boolean  | You can choose to display or not display the **Powered by Giphy** badge at the bottom. Note that you need to show it if you want a production Api key from Giphy. <br />*Default:* `true`                       |
 | `poweredByGiphyImage`  | string   | If you want to customize the **Powered by Giphy** badge, use this prop to set an alternative `src` for the image.                                                                                               |
 | `searchPlaceholder`    | string   | Search input placeholder. <br />*Default:* `Search for GIFs`                                                                                                                                                    |
-| `wrapperClassName`     | string   | Additional CSS class for the `<div>` that wrap the whole component.                                                                                                                                              |
-| `searchFormClassName`  | string   | Additional CSS class for the `<form>` element.                                                                                                                                                                   |
-| `listWrapperClassName` | string   | Additional CSS class for the `<div>` that wrap the GIFs list.                                                                                                                                                    |
-| `listItemClassName`    | string   | Additional CSS class for the `<button>` that wrap the single image.                                                                                                                                              |
+| `wrapperClassName`     | string   | Additional CSS class for the `<div>` that wrap the whole component.                                                                                                                                             |
+| `searchFormClassName`  | string   | Additional CSS class for the `<form>` element.                                                                                                                                                                  |
+| `listWrapperClassName` | string   | Additional CSS class for the `<div>` that wrap the GIFs list.                                                                                                                                                   |
+| `listItemClassName`    | string   | Additional CSS class for the `<button>` that wrap the single image.                                                                                                                                             |
+| `imageBackgroundColor` | string   | Set the Giphy's image item background color, useful when `libray` prop is set to `stickers`, since stickers have transparent background. <br />*Default:* `#eee`                                                |
 
 ### Responsive options
 `masonryConfig` prop allow you to define responsiveness of the component. This prop accept an array of objects describing the masonry's properties at different breakpoints.
@@ -104,7 +106,7 @@ When defining your properties, note the following:
 - The size without the `mq` property is assumed to be your **smallest breakpoint, and must appear first.**
 
 ## License
-MIT. © 2019 Sergio Pedercini
+MIT. © 2020 Sergio Pedercini
 
 [build-badge]: https://img.shields.io/travis/sergiop/react-giphy-searchbox?style=flat-square
 [build]: https://travis-ci.org/sergiop/react-giphy-searchbox

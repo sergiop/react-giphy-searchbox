@@ -2,10 +2,10 @@ sudo: false
 
 language: node_js
 node_js:
-  - "10.15.3"
+  - "12.16.1"
 
 before_install:
-  - npm install codecov.io coveralls
+  - yarn add codecov.io coveralls
 
 after_success:
   - cat ./coverage/lcov.info | ./node_modules/codecov.io/bin/codecov.io.js
