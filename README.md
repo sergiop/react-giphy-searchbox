@@ -1,10 +1,10 @@
-<p align="center">
+<div align="center">
   <img width="180" src="https://user-images.githubusercontent.com/2235134/62211432-b7b7ee00-b39e-11e9-84be-c0f2d1be87d6.png" alt="React Giphy Searchbox Logo">
-</p>
 
-<h3 align="center">
-  Responsive and customizable search and select for Giphy's GIFs.
-</h3>
+  ### Responsive and customizable search and select for Giphy's GIFs.
+
+  [https://sergiop.github.io/react-giphy-searchbox/](https://sergiop.github.io/react-giphy-searchbox/)
+</div>
 
 <br>
 
@@ -62,7 +62,7 @@ render(<App />, document.getElementById("root"))
 | ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `apiKey`               | string   | **REQUIRED:** Giphy's API key. Get your on https://developers.giphy.com.                                                                                                                                        |
 | `onSelect`             | function | **REQUIRED** A callback which is triggered whenever a GIF is selected. It returns a Gif object in the format specified for an image from Giphy's API.                                                           |
-| `libray`               | string   | Giphy's library: choose between `gifs` or `stickers`. <br />*Default:* `gifs`                                                                                                                                                    |
+| `libray`               | string   | Giphy's library: choose between `gifs` or `stickers`. <br />*Default:* `gifs`                                                                                                                                   |
 | `rating`               | string   | Filters results by [specified rating](https://developers.giphy.com/docs/optional-settings/#rating). <br />*Default:* `g`                                                                                        |
 | `gifPerPage`           | number   | The maximum number of images to return per page. <br />*Default:* `20`                                                                                                                                          |
 | `masonryConfig`        | array    | An array of objects describing the masonry's properties at different breakpoints. [See specific chapter for further info.](#responsive-options) <br />*Default:* `[{ columns: 2, imageWidth: 120, gutter: 5 }]` |
