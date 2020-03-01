@@ -62,6 +62,7 @@
     "prettier": "^1.18.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-syntax-highlighter": "^12.2.1",
     "react-test-renderer": "^16.8.6"
   },
   "author": "Sergio Pedercini",
