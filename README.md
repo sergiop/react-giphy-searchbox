@@ -1,11 +1,14 @@
 <div align="center">
   <img width="180" src="https://user-images.githubusercontent.com/2235134/62211432-b7b7ee00-b39e-11e9-84be-c0f2d1be87d6.png" alt="React Giphy Searchbox Logo">
-
-  ### Responsive and customizable search and select for Giphy's GIFs.
-
-  [https://sergiop.github.io/react-giphy-searchbox/](https://sergiop.github.io/react-giphy-searchbox/)
 </div>
 
+<h3 align="center">
+  Responsive and customizable search and select for Giphy's GIFs.
+</h3>
+
+<p align="center">
+  <a href="https://sergiop.github.io/react-giphy-searchbox/">https://sergiop.github.io/react-giphy-searchbox/</a>
+</p>
 <br>
 
 [![Travis][build-badge]][build]
