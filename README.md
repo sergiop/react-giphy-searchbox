@@ -1,11 +1,14 @@
-<div align="center">
+<p align="center">
   <img width="180" src="https://user-images.githubusercontent.com/2235134/62211432-b7b7ee00-b39e-11e9-84be-c0f2d1be87d6.png" alt="React Giphy Searchbox Logo">
+</p>
 
-  ### Responsive and customizable search and select for Giphy's GIFs.
+<h3 align="center">
+  Responsive and customizable search and select for Giphy's GIFs.
+</h3>
 
-  [https://sergiop.github.io/react-giphy-searchbox/](https://sergiop.github.io/react-giphy-searchbox/)
-</div>
-
+<p align="center">
+  <a href="https://sergiop.github.io/react-giphy-searchbox/">https://sergiop.github.io/react-giphy-searchbox/</a>
+</p>
 <br>
 
 [![Travis][build-badge]][build]
@@ -18,7 +21,7 @@
  **React Giphy Searchbox is a powerful react component that returns Giphy's GIF in a Masonry grid layout.** Initially the component displays trending GIFs from Giphy's feed, when the the user starts typing something in the search field it switches to searched results. When an image is selected, a [GIF object](https://developers.giphy.com/docs/api/schema/#gif-object) is returned.
 
 <p align="center">
-<img width="442" alt="React Giphy Searchbox preview" src="https://user-images.githubusercontent.com/2235134/61965849-8bccef00-afd1-11e9-9170-801a992e72bf.png">
+<img width="442" alt="React Giphy Searchbox preview" src="https://user-images.githubusercontent.com/2235134/80811888-2bee1f00-8bc7-11ea-83b2-cde8060ab7ad.png">
 </p>
 
 ## Demo
