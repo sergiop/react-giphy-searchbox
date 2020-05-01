@@ -31,12 +31,14 @@
 }
 
 .imageButton__3a-dk {
-	color: inherit;
-	border: none;
-	padding: 0;
-	font: inherit;
-	cursor: pointer;
-	outline: inherit;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  -webkit-animation: fadein__2cEkH 300ms ease-in;
+          animation: fadein__2cEkH 300ms ease-in;
 }
 
 .imageButton__3a-dk:focus {
@@ -47,6 +49,16 @@
   display: block;
   width: 100%;
   height: auto;
+}
+
+@-webkit-keyframes fadein__2cEkH {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes fadein__2cEkH {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
 .poweredByGiphy__1GBNV {
@@ -333,4 +345,4 @@ footer {
 }
 
 
-/*# sourceMappingURL=demo.93ac6ab4.css.map*/
+/*# sourceMappingURL=demo.ed63f83e.css.map*/
