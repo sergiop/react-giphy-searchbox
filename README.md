@@ -18,11 +18,18 @@
 
 ---
 
- **React Giphy Searchbox is a powerful react component that returns Giphy's GIF in a Masonry grid layout.** Initially the component displays trending GIFs from Giphy's feed, when the the user starts typing something in the search field it switches to searched results. When an image is selected, a [GIF object](https://developers.giphy.com/docs/api/schema/#gif-object) is returned.
+ **React Giphy Searchbox is a powerful react component that returns Giphy's GIF or Stickers in a Masonry grid layout.** Initially the component displays trending GIFs from Giphy's feed, when the the user starts typing something in the search field it switches to searched results. When an image is selected, a [GIF object](https://developers.giphy.com/docs/api/schema/#gif-object) is returned.
 
 <p align="center">
 <img width="442" alt="React Giphy Searchbox preview" src="https://user-images.githubusercontent.com/2235134/80811888-2bee1f00-8bc7-11ea-83b2-cde8060ab7ad.png">
 </p>
+
+
+---
+
+**Please note: [Axios](https://github.com/axios/axios) has been dropped in favor of the native [window.fetch()](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) method from version `1.3.0`. Please keep in mind that if you need to support old browsers you have to add a global polyfill like [github/fetch](https://github.com/github/fetch) or [developit/unfetch](https://github.com/developit/unfetch).**
+
+---
 
 ## Demo
 

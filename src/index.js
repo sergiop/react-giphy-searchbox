@@ -78,7 +78,7 @@ const ReactGiphySearchBox = ({
   const apiUrl = offset =>
     `https://api.giphy.com/v1/${library}/${apiEndpoint}?api_key=${apiKey}&limit=${gifPerPage}&rating=${rating}&offset=${offset}&q=${query}`
 
-  const [{ data, loading, error, lastPage }, fetch] = useApi()
+  const [{ data, loading, error, lastPage }, fetchImages] = useApi()
 
   const masonryConfigMatchMedia = useMedia(
     getMediaBreakpoints(masonryConfig),
@@ -90,7 +90,7 @@ const ReactGiphySearchBox = ({
   const [firstRun, setFirstRun] = useState(true)
   const isFirstRun = useRef(true)
   useEffect(() => {
-    fetch(apiUrl(0))
+    fetchImages(apiUrl(0))
 
     if (isFirstRun.current) {
       isFirstRun.current = false
@@ -131,7 +131,7 @@ const ReactGiphySearchBox = ({
 
         <InfiniteScroll
           pageStart={0}
-          loadMore={page => fetch(apiUrl(page * gifPerPage), true)}
+          loadMore={page => fetchImages(apiUrl(page * gifPerPage), true)}
           hasMore={!loading && !lastPage}
           useWindow={false}
           initialLoad={false}
