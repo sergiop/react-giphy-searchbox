@@ -1,12 +1,6 @@
-import axios from 'axios'
-import MockAdapter from 'axios-mock-adapter'
+import fetchMock from 'fetch-mock-jest'
 import { renderHook, act } from '@testing-library/react-hooks'
 import useApi from './useApi'
-
-// Unmock Jest Axios mock used in index.spec.js to allow the use of 'axios-mock-adapter' module
-// TODO: this test should be rewritten with Jest Axios mock, instead of 'axios-mock-adapter'
-// No need to use two different kind of axios mock.
-jest.unmock('axios')
 
 describe('useApi', () => {
   const fetchingValues = {
@@ -16,9 +10,8 @@ describe('useApi', () => {
     lastPage: false,
   }
 
-  const mock = new MockAdapter(axios)
-
-  mock.onGet('/foo').reply(200, {
+  fetchMock.mock('/foo', {
+    status: 200,
     data: [{ foo: 'foo' }],
     pagination: {
       total_count: 200,
@@ -27,15 +20,15 @@ describe('useApi', () => {
     },
   })
 
-  mock.onGet('/foo2').reply(500, {})
+  fetchMock.mock('/foo2', { status: 500 })
 
   test('perform a get request and receive some data', async () => {
     const { result, waitForNextUpdate } = renderHook(() => useApi())
 
-    const [, fetch] = result.current
+    const [, fetchImages] = result.current
 
     act(() => {
-      fetch('/foo')
+      fetchImages('/foo')
     })
 
     expect(result.current[0]).toEqual(fetchingValues)
@@ -51,10 +44,10 @@ describe('useApi', () => {
   test('perform a get request with `isMore` option and receive some data', async () => {
     const { result, waitForNextUpdate } = renderHook(() => useApi())
 
-    const [, fetch] = result.current
+    const [, fetchImages] = result.current
 
     act(() => {
-      fetch('/foo', true)
+      fetchImages('/foo', true)
     })
 
     expect(result.current[0]).toEqual(fetchingValues)

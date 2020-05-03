@@ -1,5 +1,4 @@
 import { useReducer } from 'react'
-import axios from 'axios'
 import dataFetchReducer from '../reducers/dataFetchReducer'
 
 const useApi = () => {
@@ -10,27 +9,27 @@ const useApi = () => {
     lastPage: false,
   })
 
-  const fetch = (url, isMore) => {
+  const fetchImages = (url, isMore) => {
     if (isMore) {
       dispatch({ type: 'FETCH_MORE_INIT' })
     } else {
       dispatch({ type: 'FETCH_INIT' })
     }
 
-    axios
-      .get(url)
+    fetch(url)
+      .then(response => response.json())
       .then(response => {
         if (isMore) {
           dispatch({
             type: 'FETCH_MORE_SUCCESS',
-            payload: response.data.data,
-            pagination: response.data.pagination,
+            payload: response.data,
+            pagination: response.pagination,
           })
         } else {
           dispatch({
             type: 'FETCH_SUCCESS',
-            payload: response.data.data,
-            pagination: response.data.pagination,
+            payload: response.data,
+            pagination: response.pagination,
           })
         }
       })
@@ -39,7 +38,7 @@ const useApi = () => {
       })
   }
 
-  return [state, fetch]
+  return [state, fetchImages]
 }
 
 export default useApi
