@@ -18,6 +18,7 @@ const fetchMock = data => {
 
 describe('ReactGiphySearchbox', () => {
   const onSelect = jest.fn()
+  const onSearch = jest.fn()
   const defaults = {
     apiKey: '9Ixlv3DWC1biJRI57RanyL7RTbfzz0o7',
     gifListHeight: '300px',
@@ -29,6 +30,7 @@ describe('ReactGiphySearchbox', () => {
     messageError: 'Oops! Something went wrong. Please, try again.',
     messageLoading: 'Loading...',
     messageNoMatches: 'No matches found.',
+    onSearch,
     onSelect,
     poweredByGiphy: true,
     poweredByGiphyImage: assetsPoweredByGiphy,
@@ -109,5 +111,25 @@ describe('ReactGiphySearchbox', () => {
 
     expect(Alert).toHaveTextContent(defaults.messageError)
     expect(window.fetch).toHaveBeenCalledTimes(1)
+  })
+
+  test('dispatches the onSearch action searching some gifs', async () => {
+    window.fetch = jest
+      .fn()
+      .mockImplementationOnce(() => fetchMock(giphyTrendingGetSuccess))
+      .mockImplementationOnce(() => fetchMock(giphySearchGetSuccess))
+
+    const { getByTestId } = buildSubject()
+
+    await waitForElement(() => getByTestId('MasonryLayoutContainer'))
+
+    fireEvent.change(getByTestId('SearchFormInput'), {
+      target: { value: 'Pizza' },
+    })
+
+    await waitForElement(() => getByTestId('SpinnerText'))
+    await waitForElement(() => getByTestId('MasonryLayoutContainer'))
+
+    expect(onSearch).toHaveBeenLastCalledWith('Pizza')
   })
 })
