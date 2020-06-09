@@ -41,6 +41,7 @@ type Props = {
   messageError: string,
   messageLoading: string,
   messageNoMatches: string,
+  onSearch: Function,
   onSelect: Function,
   poweredByGiphy: boolean,
   poweredByGiphyImage: string,
@@ -63,6 +64,7 @@ const ReactGiphySearchBox = ({
   messageError,
   messageLoading,
   messageNoMatches,
+  onSearch,
   onSelect,
   poweredByGiphy,
   poweredByGiphyImage,
@@ -91,6 +93,7 @@ const ReactGiphySearchBox = ({
   const isFirstRun = useRef(true)
   useEffect(() => {
     fetchImages(apiUrl(0))
+    onSearch(query)
 
     if (isFirstRun.current) {
       isFirstRun.current = false
@@ -180,6 +183,7 @@ ReactGiphySearchBox.defaultProps = {
   messageError: 'Oops! Something went wrong. Please, try again.',
   messageLoading: 'Loading...',
   messageNoMatches: 'No matches found.',
+  onSearch: () => {},
   poweredByGiphy: true,
   poweredByGiphyImage: assetsPoweredByGiphy,
   rating: 'g',
