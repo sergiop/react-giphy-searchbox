@@ -28,11 +28,15 @@ type MasonryConfig = {
   gutter: number,
 }
 
+export type ImageRenditionFileType = 'gif' | 'webp'
+
 type Props = {
   apiKey: string,
   gifListHeight: string,
   gifPerPage: number,
   imageBackgroundColor: string,
+  imageRenditionName: string,
+  imageRenditionFileType: ImageRenditionFileType,
   library: 'gifs' | 'stickers',
   listItemClassName: string,
   listWrapperClassName: string,
@@ -56,6 +60,8 @@ const ReactGiphySearchBox = ({
   gifListHeight,
   gifPerPage,
   imageBackgroundColor,
+  imageRenditionName,
+  imageRenditionFileType,
   library,
   listItemClassName,
   listWrapperClassName,
@@ -160,6 +166,8 @@ const ReactGiphySearchBox = ({
                   listItemClassName={listItemClassName}
                   onSelect={onSelect}
                   backgroundColor={imageBackgroundColor}
+                  imageRenditionName={imageRenditionName}
+                  imageRenditionFileType={imageRenditionFileType}
                 />
               ))}
             </MasonryLayout>
@@ -175,6 +183,8 @@ ReactGiphySearchBox.defaultProps = {
   gifListHeight: '300px',
   gifPerPage: 20,
   imageBackgroundColor: '#eee',
+  imageRenditionName: 'fixed_width_downsampled',
+  imageRenditionFileType: 'gif',
   library: 'gifs',
   listItemClassName: '',
   listWrapperClassName: '',

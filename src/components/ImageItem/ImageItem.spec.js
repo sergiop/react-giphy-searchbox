@@ -15,6 +15,8 @@ describe('ImageItem', () => {
       },
       title: 'Image title',
     },
+    imageRenditionName: 'fixed_width_downsampled',
+    imageRenditionFileType: 'gif',
     listItemClassName: '',
     onSelect,
     size: 200,
