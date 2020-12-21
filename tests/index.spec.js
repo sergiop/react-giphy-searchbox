@@ -21,10 +21,11 @@ describe('ReactGiphySearchbox', () => {
   const onSearch = jest.fn()
   const defaults = {
     apiKey: '9Ixlv3DWC1biJRI57RanyL7RTbfzz0o7',
+    autoFocus: false,
     gifListHeight: '300px',
     gifPerPage: 5,
-    imageRenditionName: 'fixed_width_downsampled',
     imageRenditionFileType: 'gif',
+    imageRenditionName: 'fixed_width_downsampled',
     listItemClassName: '',
     listWrapperClassName: '',
     loadingImage: assetsSpinner,

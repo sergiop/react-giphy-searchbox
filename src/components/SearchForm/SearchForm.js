@@ -8,6 +8,7 @@ type Props = {
   searchFormClassName: string,
   setValue: Function,
   value: string,
+  autoFocus: boolean,
 }
 
 const SearchForm = ({
@@ -16,6 +17,7 @@ const SearchForm = ({
   searchFormClassName,
   setValue,
   value,
+  autoFocus,
 }: Props) => (
   <form
     data-testid="SearchFormForm"
@@ -33,6 +35,8 @@ const SearchForm = ({
       value={value}
       name="search"
       className={styles.input}
+      // eslint-disable-next-line jsx-a11y/no-autofocus
+      autoFocus={autoFocus}
     />
   </form>
 )

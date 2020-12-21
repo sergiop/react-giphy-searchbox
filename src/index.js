@@ -32,11 +32,12 @@ export type ImageRenditionFileType = 'gif' | 'webp'
 
 type Props = {
   apiKey: string,
+  autoFocus: boolean,
   gifListHeight: string,
   gifPerPage: number,
   imageBackgroundColor: string,
-  imageRenditionName: string,
   imageRenditionFileType: ImageRenditionFileType,
+  imageRenditionName: string,
   library: 'gifs' | 'stickers',
   listItemClassName: string,
   listWrapperClassName: string,
@@ -57,11 +58,12 @@ type Props = {
 
 const ReactGiphySearchBox = ({
   apiKey,
+  autoFocus,
   gifListHeight,
   gifPerPage,
   imageBackgroundColor,
-  imageRenditionName,
   imageRenditionFileType,
+  imageRenditionName,
   library,
   listItemClassName,
   listWrapperClassName,
@@ -121,6 +123,7 @@ const ReactGiphySearchBox = ({
         loadingData={loading}
         searchFormClassName={searchFormClassName}
         placeholder={searchPlaceholder}
+        autoFocus={autoFocus}
       />
 
       <div
@@ -180,11 +183,12 @@ const ReactGiphySearchBox = ({
 }
 
 ReactGiphySearchBox.defaultProps = {
+  autoFocus: false,
   gifListHeight: '300px',
   gifPerPage: 20,
   imageBackgroundColor: '#eee',
-  imageRenditionName: 'fixed_width_downsampled',
   imageRenditionFileType: 'gif',
+  imageRenditionName: 'fixed_width_downsampled',
   library: 'gifs',
   listItemClassName: '',
   listWrapperClassName: '',
@@ -198,8 +202,8 @@ ReactGiphySearchBox.defaultProps = {
   poweredByGiphyImage: assetsPoweredByGiphy,
   rating: 'g',
   searchFormClassName: '',
-  wrapperClassName: '',
   searchPlaceholder: 'Search for GIFs',
+  wrapperClassName: '',
 }
 
 export default ReactGiphySearchBox
