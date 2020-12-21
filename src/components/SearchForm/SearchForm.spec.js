@@ -11,6 +11,7 @@ describe('SearchForm', () => {
     searchFormClassName: '',
     setValue,
     value: '',
+    autoFocus: false,
   }
 
   const buildSubject = (props = defaults) => render(<SearchForm {...props} />)
@@ -36,5 +37,19 @@ describe('SearchForm', () => {
     const { getByTestId } = buildSubject(props)
 
     expect(getByTestId('SearchFormForm').getAttribute('class')).toBe('form foo')
+  })
+
+  test('if autofocus is true, the input field is focused', () => {
+    const props = { ...defaults, autoFocus: true }
+    const { getByTestId } = buildSubject(props)
+
+    expect(getByTestId('SearchFormInput')).toHaveFocus()
+  })
+
+  test('if autofocus is false, the input field is not focused', () => {
+    const props = { ...defaults, autoFocus: false }
+    const { getByTestId } = buildSubject(props)
+
+    expect(getByTestId('SearchFormInput')).not.toHaveFocus()
   })
 })
