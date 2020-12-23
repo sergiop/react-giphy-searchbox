@@ -17,7 +17,15 @@ const useApi = () => {
     }
 
     fetch(url)
-      .then(response => response.json())
+      .then(response => {
+        if (!response.ok) {
+          return response.json().then(json => {
+            throw json
+          })
+        }
+
+        return response.json()
+      })
       .then(response => {
         if (isMore) {
           dispatch({

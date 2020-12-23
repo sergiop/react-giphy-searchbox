@@ -10,12 +10,6 @@ import assetsPoweredByGiphy from '../src/assets/poweredByGiphy.png'
 
 // TO-DO: Test the loading more (infinite scrolling)
 
-const fetchMock = data => {
-  return Promise.resolve({
-    json: () => Promise.resolve(data),
-  })
-}
-
 describe('ReactGiphySearchbox', () => {
   const onSelect = jest.fn()
   const onSearch = jest.fn()
@@ -51,12 +45,13 @@ describe('ReactGiphySearchbox', () => {
   })
 
   test('fetches Giphy Api and displays trending gifs', async () => {
-    window.fetch = jest
-      .fn()
-      .mockImplementationOnce(() => fetchMock(giphyTrendingGetSuccess))
+    window.fetch = jest.fn().mockResolvedValueOnce({
+      ok: true,
+      status: 200,
+      json: async () => giphyTrendingGetSuccess,
+    })
 
     const { getByTestId } = buildSubject()
-
     // Loading message displayed
     const Loader = await waitForElement(() => getByTestId('SpinnerText'))
     expect(Loader).toHaveTextContent(defaults.messageLoading)
@@ -71,9 +66,11 @@ describe('ReactGiphySearchbox', () => {
   })
 
   test('fetches Giphy Api and returns an error', async () => {
-    window.fetch = jest
-      .fn()
-      .mockRejectedValueOnce(() => fetchMock(giphyTrendingGet404Error))
+    window.fetch = jest.fn().mockResolvedValueOnce({
+      ok: false,
+      status: 404,
+      json: async () => giphyTrendingGet404Error,
+    })
     const { getByTestId } = buildSubject()
 
     expect(getByTestId('SpinnerText')).toHaveTextContent(
@@ -91,8 +88,16 @@ describe('ReactGiphySearchbox', () => {
     let Loader
     window.fetch = jest
       .fn()
-      .mockImplementationOnce(() => fetchMock(giphyTrendingGetSuccess))
-      .mockImplementationOnce(() => fetchMock(giphySearchGetSuccess))
+      .mockResolvedValueOnce({
+        ok: true,
+        status: 200,
+        json: async () => giphyTrendingGetSuccess,
+      })
+      .mockResolvedValueOnce({
+        ok: true,
+        status: 200,
+        json: async () => giphySearchGetSuccess,
+      })
 
     const { getByTestId } = buildSubject()
 
@@ -132,8 +137,16 @@ describe('ReactGiphySearchbox', () => {
     let Loader
     window.fetch = jest
       .fn()
-      .mockImplementationOnce(() => fetchMock(giphyTrendingGetSuccess))
-      .mockImplementationOnce(() => fetchMock(giphySearchGetSuccessEmpty))
+      .mockResolvedValueOnce({
+        ok: true,
+        status: 200,
+        json: async () => giphyTrendingGetSuccess,
+      })
+      .mockResolvedValueOnce({
+        ok: true,
+        status: 200,
+        json: async () => giphySearchGetSuccessEmpty,
+      })
 
     const { getByTestId } = buildSubject()
 

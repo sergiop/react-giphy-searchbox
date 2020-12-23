@@ -1,76 +1,82 @@
-import fetchMock from 'fetch-mock-jest'
 import { renderHook, act } from '@testing-library/react-hooks'
+import giphyTrendingGet404Error from '../../tests/fixtures/giphyTrendingGet404Error.json'
+import giphyTrendingGetSuccess from '../../tests/fixtures/giphyTrendingGetSuccess.json'
 import useApi from './useApi'
 
 describe('useApi', () => {
-  const fetchingValues = {
+  const fetchingInitValues = {
     loading: true,
     error: false,
     data: [],
     lastPage: false,
   }
 
-  fetchMock.mock('/foo', {
-    status: 200,
-    data: [{ foo: 'foo' }],
-    pagination: {
-      total_count: 200,
-      count: 25,
-      offset: 0,
-    },
-  })
-
-  fetchMock.mock('/foo2', { status: 500 })
-
   test('perform a get request and receive some data', async () => {
     const { result, waitForNextUpdate } = renderHook(() => useApi())
-
     const [, fetchImages] = result.current
 
-    act(() => {
-      fetchImages('/foo')
+    window.fetch = jest.fn().mockResolvedValueOnce({
+      ok: true,
+      status: 200,
+      json: async () => giphyTrendingGetSuccess,
     })
 
-    expect(result.current[0]).toEqual(fetchingValues)
+    act(() => {
+      fetchImages()
+    })
+
+    expect(result.current[0]).toEqual(fetchingInitValues)
     await waitForNextUpdate()
     expect(result.current[0]).toEqual({
       loading: false,
       error: false,
-      data: [{ foo: 'foo' }],
+      data: giphyTrendingGetSuccess.data,
       lastPage: false,
     })
   })
 
   test('perform a get request with `isMore` option and receive some data', async () => {
     const { result, waitForNextUpdate } = renderHook(() => useApi())
-
     const [, fetchImages] = result.current
 
-    act(() => {
-      fetchImages('/foo', true)
+    window.fetch = jest.fn().mockResolvedValueOnce({
+      ok: true,
+      status: 200,
+      json: async () => giphyTrendingGetSuccess,
     })
 
-    expect(result.current[0]).toEqual(fetchingValues)
+    act(() => {
+      fetchImages('', true)
+    })
+
+    expect(result.current[0]).toEqual(fetchingInitValues)
     await waitForNextUpdate()
     expect(result.current[0]).toEqual({
       loading: false,
       error: false,
-      data: [{ foo: 'foo' }],
+      data: giphyTrendingGetSuccess.data,
       lastPage: false,
     })
   })
 
   test('perform a get request and receive an error', async () => {
     const { result, waitForNextUpdate } = renderHook(() => useApi())
+    const [, fetchImages] = result.current
 
-    const [, fetch] = result.current
-
-    act(() => {
-      fetch('/foo2')
+    window.fetch = jest.fn().mockResolvedValueOnce({
+      ok: false,
+      status: 404,
+      json: async () => giphyTrendingGet404Error,
     })
 
-    expect(result.current[0]).toEqual(fetchingValues)
+    act(() => {
+      fetchImages()
+    })
+
+    expect(result.current[0]).toEqual(fetchingInitValues)
+
     await waitForNextUpdate()
+
     expect(result.current[0]).toEqual({
       loading: false,
       error: true,
