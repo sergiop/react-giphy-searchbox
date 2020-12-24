@@ -88,7 +88,7 @@ describe('useApi', () => {
 
   // It has been reported that sometimes Giphy API, probably due to a bug, return a malformed
   // response, missing the pagination key.
-  test.only('perform a get request and receive a response without the pagination', async () => {
+  test('perform a get request and receive a response without the pagination', async () => {
     const { result, waitForNextUpdate } = renderHook(() => useApi())
     const [, fetchImages] = result.current
 
