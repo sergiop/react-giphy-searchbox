@@ -1,6 +1,7 @@
 import { renderHook, act } from '@testing-library/react-hooks'
 import giphyTrendingGet404Error from '../../tests/fixtures/giphyTrendingGet404Error.json'
 import giphyTrendingGetSuccess from '../../tests/fixtures/giphyTrendingGetSuccess.json'
+import giphySearchGetSuccessMissingPagination from '../../tests/fixtures/giphySearchGetSuccessMissingPagination.json'
 import useApi from './useApi'
 
 describe('useApi', () => {
@@ -77,6 +78,32 @@ describe('useApi', () => {
 
     await waitForNextUpdate()
 
+    expect(result.current[0]).toEqual({
+      loading: false,
+      error: true,
+      data: [],
+      lastPage: false,
+    })
+  })
+
+  // It has been reported that sometimes Giphy API, probably due to a bug, return a malformed
+  // response, missing the pagination key.
+  test.only('perform a get request and receive a response without the pagination', async () => {
+    const { result, waitForNextUpdate } = renderHook(() => useApi())
+    const [, fetchImages] = result.current
+
+    window.fetch = jest.fn().mockResolvedValueOnce({
+      ok: true,
+      status: 200,
+      json: async () => giphySearchGetSuccessMissingPagination,
+    })
+
+    act(() => {
+      fetchImages()
+    })
+
+    expect(result.current[0]).toEqual(fetchingInitValues)
+    await waitForNextUpdate()
     expect(result.current[0]).toEqual({
       loading: false,
       error: true,

@@ -27,19 +27,23 @@ const useApi = () => {
         return response.json()
       })
       .then(response => {
+        if (!response.pagination) {
+          return dispatch({ type: 'FETCH_FAILURE' })
+        }
+
         if (isMore) {
-          dispatch({
+          return dispatch({
             type: 'FETCH_MORE_SUCCESS',
             payload: response.data,
             pagination: response.pagination,
           })
-        } else {
-          dispatch({
-            type: 'FETCH_SUCCESS',
-            payload: response.data,
-            pagination: response.pagination,
-          })
         }
+
+        return dispatch({
+          type: 'FETCH_SUCCESS',
+          payload: response.data,
+          pagination: response.pagination,
+        })
       })
       .catch(() => {
         dispatch({ type: 'FETCH_FAILURE' })
