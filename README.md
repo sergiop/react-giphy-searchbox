@@ -120,7 +120,7 @@ When defining your properties, note the following:
 - The size without the `mq` property is assumed to be your **smallest breakpoint, and must appear first.**
 
 ## License
-MIT. © 2020 Sergio Pedercini
+MIT. © 2021 Sergio Pedercini
 
 [build-badge]: https://img.shields.io/travis/sergiop/react-giphy-searchbox?style=flat-square
 [build]: https://travis-ci.org/sergiop/react-giphy-searchbox
