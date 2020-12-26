@@ -36,7 +36,9 @@ describe('SearchForm', () => {
     const props = { ...defaults, searchFormClassName: 'foo' }
     const { getByTestId } = buildSubject(props)
 
-    expect(getByTestId('SearchFormForm').getAttribute('class')).toBe('form foo')
+    expect(getByTestId('SearchFormForm').getAttribute('class')).toBe(
+      'reactGiphySearchbox-searchForm-form foo',
+    )
   })
 
   test('if autofocus is true, the input field is focused', () => {
