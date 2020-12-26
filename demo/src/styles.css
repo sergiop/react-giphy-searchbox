@@ -172,22 +172,22 @@ section h2 {
   box-shadow: 0 .3rem 1rem rgba(8, 38, 78, 0.2);
 }
 
-.searchSearchForm {
+.searchBox .reactGiphySearchbox-searchForm-form {
   margin-bottom: .7rem
 }
 
-.searchSearchForm input {
+.searchBox .reactGiphySearchbox-searchForm-form input {
   border: 0;
   padding: 0 0 0.4rem 0;
   border-bottom: 1px solid #d7dee2;
   color: #233a54;
 }
 
-.searchSearchForm input::placeholder {
+.searchBox .reactGiphySearchbox-searchForm-form input::placeholder {
   color: #636f7d;
 }
 
-.searchSearchForm input:focus {
+.searchBox .reactGiphySearchbox-searchForm-form input:focus {
   border-color: #b2bcc2;
 }
 

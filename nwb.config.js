@@ -10,12 +10,6 @@ module.exports = {
     aliases: {
       assets: path.resolve('src/assets'),
     },
-    rules: {
-      css: {
-        modules: true,
-        localIdentName: '[local]__[hash:base64:5]',
-      },
-    },
     html: {
       template: 'demo/src/index.html',
     },

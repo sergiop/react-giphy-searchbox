@@ -1,7 +1,8 @@
 // @flow
 import React, { useEffect, useRef, useState } from 'react'
 import InfiniteScroll from 'react-infinite-scroller'
-import styles from './index.module.css'
+import { useStyle } from './style'
+import { styles } from './indexStyles'
 import SearchForm from './components/SearchForm/SearchForm'
 import ImageItem from './components/ImageItem/ImageItem'
 import PoweredByGiphy from './components/PoweredByGiphy/PoweredByGiphy'
@@ -81,6 +82,7 @@ const ReactGiphySearchBox = ({
   searchPlaceholder,
   wrapperClassName,
 }: Props) => {
+  useStyle('Index', styles)
   const { query, handleInputChange, handleSubmit } = useSearchForm()
   const debouncedQuery = useDebounce(query, 500)
 
@@ -111,7 +113,7 @@ const ReactGiphySearchBox = ({
 
   return (
     <div
-      className={`${styles.componentWrapper}${
+      className={`reactGiphySearchbox-componentWrapper${
         wrapperClassName ? ` ${wrapperClassName}` : ''
       }`}
       style={{ width: getComponentWrapperWidth(masonryConfigMatchMedia) }}
@@ -127,7 +129,7 @@ const ReactGiphySearchBox = ({
       />
 
       <div
-        className={`${styles.listWrapper}${
+        className={`reactGiphySearchbox-listWrapper${
           listWrapperClassName ? ` ${listWrapperClassName}` : ''
         }`}
         style={{ height: gifListHeight }}

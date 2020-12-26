@@ -6,7 +6,7 @@ import { render } from 'react-dom'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { base16AteliersulphurpoolLight } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import ReactGiphySearchBox from '../../src'
-import styles from './index.module.css'
+import './styles.css'
 import logo from './img/logo.png'
 
 const demoCode = `import ReactGiphySearchbox from 'react-giphy-searchbox'
@@ -42,11 +42,11 @@ const App = () => (
 const Demo = () => (
   <div>
     <header>
-      <div className={styles.container}>
-        <div className={styles.logo}>
+      <div className="container">
+        <div className="logo">
           <img src={logo} alt="React Giphy Searchbox" />
         </div>
-        <div className={styles.header}>
+        <div className="header">
           <h1>React Giphy Searchbox</h1>
           <p>
             Responsive and customizable search and select for Giphy GIFs and
@@ -56,7 +56,7 @@ const Demo = () => (
       </div>
     </header>
 
-    <div className={styles.container}>
+    <div className="container">
       <section>
         <h2>Get Started</h2>
         <p>
@@ -80,14 +80,13 @@ const Demo = () => (
       <section>
         <h2>Basic Responsive Demo</h2>
 
-        <div className={styles.demo}>
-          <div className={styles.demoSearchBox}>
-            <div className={styles.searchBox}>
+        <div className="demo">
+          <div className="demoSearchBox">
+            <div className="searchBox">
               <ReactGiphySearchBox
                 apiKey="9Ixlv3DWC1biJRI57RanyL7RTbfzz0o7"
                 // eslint-disable-next-line no-console
                 onSelect={item => console.log(item)}
-                searchFormClassName={styles.searchSearchForm}
                 masonryConfig={[
                   { columns: 2, imageWidth: 110, gutter: 5 },
                   { mq: '700px', columns: 3, imageWidth: 110, gutter: 5 },
@@ -96,8 +95,8 @@ const Demo = () => (
             </div>
           </div>
 
-          <div className={styles.demoCode}>
-            <div className={styles.code}>
+          <div className="demoCode">
+            <div className="code">
               <SyntaxHighlighter
                 language="jsx"
                 style={base16AteliersulphurpoolLight}
@@ -112,14 +111,13 @@ const Demo = () => (
       <section>
         <h2>Stickers Demo</h2>
 
-        <div className={styles.demo}>
-          <div className={styles.demoSearchBox}>
-            <div className={styles.searchBox}>
+        <div className="demo">
+          <div className="demoSearchBox">
+            <div className="searchBox">
               <ReactGiphySearchBox
                 apiKey="9Ixlv3DWC1biJRI57RanyL7RTbfzz0o7"
                 // eslint-disable-next-line no-console
                 onSelect={item => console.log(item)}
-                searchFormClassName={styles.searchSearchForm}
                 library="stickers"
                 searchPlaceholder="Search for Stickers"
                 masonryConfig={[
@@ -130,8 +128,8 @@ const Demo = () => (
             </div>
           </div>
 
-          <div className={styles.demoCode}>
-            <div className={styles.code}>
+          <div className="demoCode">
+            <div className="code">
               <SyntaxHighlighter
                 language="jsx"
                 style={base16AteliersulphurpoolLight}
@@ -143,7 +141,7 @@ const Demo = () => (
         </div>
       </section>
 
-      <footer>© 2020 Sergio Pedercini - Released using MIT license</footer>
+      <footer>© 2021 Sergio Pedercini - Released using MIT license</footer>
     </div>
   </div>
 )
