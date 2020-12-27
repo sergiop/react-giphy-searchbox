@@ -5,8 +5,6 @@ import giphyTrendingGetSuccess from './fixtures/giphyTrendingGetSuccess.json'
 import giphyTrendingGet404Error from './fixtures/giphyTrendingGet404Error.json'
 import giphySearchGetSuccessEmpty from './fixtures/giphySearchGetSuccessEmpty.json'
 import giphySearchGetSuccess from './fixtures/giphySearchGetSuccess.json'
-import assetsSpinner from '../src/assets/spinner.svg'
-import assetsPoweredByGiphy from '../src/assets/poweredByGiphy.png'
 
 // TO-DO: Test the loading more (infinite scrolling)
 
@@ -22,7 +20,6 @@ describe('ReactGiphySearchbox', () => {
     imageRenditionName: 'fixed_width_downsampled',
     listItemClassName: '',
     listWrapperClassName: '',
-    loadingImage: assetsSpinner,
     masonryConfig: [{ columns: 2, imageWidth: 120, gutter: 5 }],
     messageError: 'Oops! Something went wrong. Please, try again.',
     messageLoading: 'Loading...',
@@ -30,7 +27,6 @@ describe('ReactGiphySearchbox', () => {
     onSearch,
     onSelect,
     poweredByGiphy: true,
-    poweredByGiphyImage: assetsPoweredByGiphy,
     rating: 'g',
     searchFormClassName: '',
     searchPlaceholder: 'Search for GIFs',

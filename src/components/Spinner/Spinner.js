@@ -2,11 +2,12 @@
 import React from 'react'
 import { useStyle } from '../../style'
 import { styles } from './spinnerStyles'
+import SpinnerIcon from '../../assets/SpinnerIcon'
 
 type Props = {
   show: boolean,
   message: string,
-  image: string,
+  image: ?string,
 }
 
 const Spinner = ({ show, message, image }: Props) => {
@@ -15,11 +16,9 @@ const Spinner = ({ show, message, image }: Props) => {
   return (
     show && (
       <div role="status" className="reactGiphySearchbox-spinnerWrapper">
-        <div
-          className="reactGiphySearchbox-spinner"
-          style={{ backgroundImage: `url(${image})` }}
-          data-testid="Spinner"
-        />
+        <div className="reactGiphySearchbox-spinner" data-testid="Spinner">
+          {image ? <img src={image} alt="Loading icon" /> : <SpinnerIcon />}
+        </div>
         <div
           className="reactGiphySearchbox-spinnerText"
           data-testid="SpinnerText"

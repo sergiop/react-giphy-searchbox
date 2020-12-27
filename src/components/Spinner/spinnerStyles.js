@@ -16,6 +16,11 @@ export const styles = css`
     animation: spin 500ms linear infinite;
   }
 
+  .reactGiphySearchbox-spinner img {
+    display: block;
+    width: 100%;
+  }
+
   @keyframes spin {
     0% {
       transform: rotate(0deg);

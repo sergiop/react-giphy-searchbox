@@ -13,8 +13,6 @@ import useSearchForm from './hooks/useSearchForm'
 import useDebounce from './hooks/useDebounce'
 import useMedia from './hooks/useMedia'
 import useApi from './hooks/useApi'
-import assetsSpinner from './assets/spinner.svg'
-import assetsPoweredByGiphy from './assets/poweredByGiphy.png'
 import {
   getComponentWrapperWidth,
   getDefaultMasonryConfig,
@@ -42,7 +40,7 @@ type Props = {
   library: 'gifs' | 'stickers',
   listItemClassName: string,
   listWrapperClassName: string,
-  loadingImage: string,
+  loadingImage: ?string,
   masonryConfig: Array<MasonryConfig>,
   messageError: string,
   messageLoading: string,
@@ -50,7 +48,7 @@ type Props = {
   onSearch: Function,
   onSelect: Function,
   poweredByGiphy: boolean,
-  poweredByGiphyImage: string,
+  poweredByGiphyImage: ?string,
   rating: string,
   searchFormClassName: string,
   searchPlaceholder: string,
@@ -194,14 +192,14 @@ ReactGiphySearchBox.defaultProps = {
   library: 'gifs',
   listItemClassName: '',
   listWrapperClassName: '',
-  loadingImage: assetsSpinner,
+  loadingImage: undefined,
   masonryConfig: [{ columns: 2, imageWidth: 120, gutter: 5 }],
   messageError: 'Oops! Something went wrong. Please, try again.',
   messageLoading: 'Loading...',
   messageNoMatches: 'No matches found.',
   onSearch: () => {},
   poweredByGiphy: true,
-  poweredByGiphyImage: assetsPoweredByGiphy,
+  poweredByGiphyImage: undefined,
   rating: 'g',
   searchFormClassName: '',
   searchPlaceholder: 'Search for GIFs',
