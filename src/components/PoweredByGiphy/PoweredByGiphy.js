@@ -2,9 +2,10 @@
 import React from 'react'
 import { useStyle } from '../../style'
 import { styles } from './poweredByGiphyStyles'
+import PoweredByGiphyLogo from '../../assets/PoweredByGiphyLogo'
 
 type Props = {
-  image: string,
+  image: ?string,
 }
 
 const PoweredByGiphy = ({ image }: Props) => {
@@ -12,7 +13,11 @@ const PoweredByGiphy = ({ image }: Props) => {
 
   return (
     <div className="reactGiphySearchbox-poweredByGiphy">
-      <img src={image} alt="Powered by Giphy" data-testid="PoweredByGiphy" />
+      {image ? (
+        <img src={image} alt="Powered by Giphy" data-testid="PoweredByGiphy" />
+      ) : (
+        <PoweredByGiphyLogo />
+      )}
     </div>
   )
 }

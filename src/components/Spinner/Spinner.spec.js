@@ -14,9 +14,6 @@ describe('Spinner', () => {
   test('render the spinner', () => {
     const { getByTestId } = buildSubject()
 
-    expect(getByTestId('Spinner').getAttribute('style')).toBe(
-      `background-image: url(${defaults.image});`,
-    )
     expect(getByTestId('SpinnerText')).toHaveTextContent(defaults.message)
   })
 
