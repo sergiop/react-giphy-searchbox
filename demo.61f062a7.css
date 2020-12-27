@@ -1,118 +1,3 @@
-.componentWrapper__UAIEy {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-.componentWrapper__UAIEy *, .componentWrapper__UAIEy *:before, .componentWrapper__UAIEy *:after {
-  -webkit-box-sizing: inherit;
-          box-sizing: inherit;
-}
-
-.listWrapper__2tEfG {
-  overflow-y: auto;
-}
-
-.form__15omB {
-  position: relative;
-  margin-bottom: 10px;
-}
-
-.input__CzLY4 {
-  padding: 6px 4px;
-  width: 100%;
-  font-size: 1em;
-  font-family: inherit;
-  outline: none;
-  border: 1px solid #ddd;
-}
-
-.input__CzLY4:focus {
-  border-color: #bbb;
-}
-
-.imageButton__3a-dk {
-  color: inherit;
-  border: none;
-  padding: 0;
-  font: inherit;
-  cursor: pointer;
-  outline: inherit;
-  -webkit-animation: fadein__2cEkH 300ms ease-in;
-          animation: fadein__2cEkH 300ms ease-in;
-}
-
-.imageButton__3a-dk:focus {
-  opacity: 0.6;
-}
-
-.image__3wihX {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-@-webkit-keyframes fadein__2cEkH {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-@keyframes fadein__2cEkH {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-.poweredByGiphy__1GBNV {
-  padding-top: 10px;
-}
-
-.poweredByGiphy__1GBNV img {
-  display: block;
-  width: 100px
-}
-
-.message__6gpWo {
-  margin: 0;
-}
-
-.spinnerWrapper__3VRkw {
-  text-align: center;
-  padding-bottom: 10px;
-}
-
-.spinner__-6thG {
-  display: inline-block;
-  vertical-align: middle;
-  width: 20px;
-  height: 20px;
-  background-size: contain;
-  -webkit-animation: spin__xZP62 500ms linear infinite;
-          animation: spin__xZP62 500ms linear infinite;
-}
-
-@-webkit-keyframes spin__xZP62 {
-  0% { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
-  100% { -webkit-transform: rotate(360deg); transform: rotate(360deg); }
-}
-
-@keyframes spin__xZP62 {
-  0% { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
-  100% { -webkit-transform: rotate(360deg); transform: rotate(360deg); }
-}
-
-/* https://hugogiraudel.com/2016/10/13/css-hide-and-seek/ */
-.spinnerText__282lm {
-  border: 0;
-  clip: rect(1px, 1px, 1px, 1px);
-  -webkit-clip-path: inset(50%);
-  clip-path: inset(50%);
-  height: 1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-  white-space: nowrap;
-}
-
 /* Global */
 
 html {
@@ -165,20 +50,20 @@ p:last-child {
   margin-bottom: 0;
 }
 
-.container__2XabS {
+.container {
   margin: 0 auto;
   padding: 0 0.8rem;
 }
 
 @media screen and (min-width: 700px) {
-  .container__2XabS {
+  .container {
     width: 660px;
     padding: 0;
   }
 }
 
 @media screen and (min-width: 1000px) {
-  .container__2XabS {
+  .container {
     width: 960px;
   }
 }
@@ -191,20 +76,20 @@ header {
   text-align: center;
 }
 
-.header__13-io {
+.header {
   margin: 1rem 0 0 0
 }
 
-.header__13-io h1 {
+.header h1 {
   margin-bottom: 0.5rem
 }
 
-.logo__-Tlad img {
+.logo img {
   width: 6rem;
 }
 
 @media screen and (min-width: 700px) {
-  .logo__-Tlad img {
+  .logo img {
     width: 8.5rem;
   }
 }
@@ -221,7 +106,7 @@ section h2 {
   margin-bottom: 1.8rem;
 }
 
-.demo__1qD15 {
+.demo {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -232,7 +117,7 @@ section h2 {
 }
 
 @media screen and (min-width: 1000px) {
-  .demo__1qD15 {
+  .demo {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -246,31 +131,31 @@ section h2 {
   }
 }
 
-.demoSearchBox__3eCk7 {
+.demoSearchBox {
   -ms-flex-item-align: center;
       align-self: center;
   margin-bottom: 1.5rem;
 }
 
 @media screen and (min-width: 1000px) {
-  .demoSearchBox__3eCk7 {
+  .demoSearchBox {
     margin-right: 2rem;
     margin-bottom: 0;
   }
 }
 
-.demoCode__11TiW {
+.demoCode {
   -webkit-box-flex: 1;
       -ms-flex: 1 auto;
           flex: 1 auto;
   max-width: 100%;
 }
 
-.code__1l7ML {
+.code {
   position: relative;
 }
 
-.code__1l7ML::before {
+.code::before {
   background-color: #5b718b;
   color: #fff;
   content: "Code";
@@ -283,12 +168,12 @@ section h2 {
   /* transform: translateY(-100%); */
 }
 
-.code__1l7ML pre, .code__1l7ML code {
+.code pre, .code code {
   background: transparent !important;
   font-size: 0.75rem !important;
 }
 
-.code__1l7ML pre {
+.code pre {
   padding: 0 !important;
   margin: 0 !important;
   background: #fff !important;
@@ -296,7 +181,7 @@ section h2 {
   padding: 0.8rem !important;
 }
 
-.searchBox__109VE {
+.searchBox {
   border-radius: 0.3rem;
   background-color: #fff;
   display: inline-block;
@@ -305,34 +190,34 @@ section h2 {
           box-shadow: 0 .3rem 1rem rgba(8, 38, 78, 0.2);
 }
 
-.searchSearchForm__-hfU8 {
+.searchBox .reactGiphySearchbox-searchForm-form {
   margin-bottom: .7rem
 }
 
-.searchSearchForm__-hfU8 input {
+.searchBox .reactGiphySearchbox-searchForm-form input {
   border: 0;
   padding: 0 0 0.4rem 0;
   border-bottom: 1px solid #d7dee2;
   color: #233a54;
 }
 
-.searchSearchForm__-hfU8 input::-webkit-input-placeholder {
+.searchBox .reactGiphySearchbox-searchForm-form input::-webkit-input-placeholder {
   color: #636f7d;
 }
 
-.searchSearchForm__-hfU8 input::-moz-placeholder {
+.searchBox .reactGiphySearchbox-searchForm-form input::-moz-placeholder {
   color: #636f7d;
 }
 
-.searchSearchForm__-hfU8 input::-ms-input-placeholder {
+.searchBox .reactGiphySearchbox-searchForm-form input::-ms-input-placeholder {
   color: #636f7d;
 }
 
-.searchSearchForm__-hfU8 input::placeholder {
+.searchBox .reactGiphySearchbox-searchForm-form input::placeholder {
   color: #636f7d;
 }
 
-.searchSearchForm__-hfU8 input:focus {
+.searchBox .reactGiphySearchbox-searchForm-form input:focus {
   border-color: #b2bcc2;
 }
 
@@ -345,4 +230,4 @@ footer {
 }
 
 
-/*# sourceMappingURL=demo.7a793659.css.map*/
+/*# sourceMappingURL=demo.61f062a7.css.map*/
