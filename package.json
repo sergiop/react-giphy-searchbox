@@ -27,7 +27,7 @@
     "react-infinite-scroller": "^1.2.4"
   },
   "peerDependencies": {
-    "react": "16.x"
+    "react": "16.x || ^17"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-0",
