@@ -1,6 +1,6 @@
 {
   "name": "perfect-giphy-searchbox",
-  "version": "1.5.6",
+  "version": "1.5.5",
   "description": "React Giphy Searchbox",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -66,7 +66,7 @@
   "author": "Sergio Pedercini",
   "homepage": "https://sergiop.github.io/react-giphy-searchbox/",
   "license": "MIT",
-  "repository": "github.com/angela0202/perfect-giphy-searchbox",
+  "repository": "github:angela0202/perfect-giphy-searchbox",
   "keywords": [
     "react-component",
     "giphy",
