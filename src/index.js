@@ -1,5 +1,5 @@
 // @flow
-import React, { useEffect, useRef, useState } from 'react'
+import React, {forwardRef, useEffect, useRef, useState} from 'react'
 import InfiniteScroll from 'react-infinite-scroller'
 import { useStyle } from './style'
 import { styles } from './indexStyles'
@@ -53,34 +53,38 @@ type Props = {
   searchFormClassName: string,
   searchPlaceholder: string,
   wrapperClassName: string,
+  externalCss: boolean,
 }
 
-const ReactGiphySearchBox = ({
-  apiKey,
-  autoFocus,
-  gifListHeight,
-  gifPerPage,
-  imageBackgroundColor,
-  imageRenditionFileType,
-  imageRenditionName,
-  library,
-  listItemClassName,
-  listWrapperClassName,
-  loadingImage,
-  masonryConfig,
-  messageError,
-  messageLoading,
-  messageNoMatches,
-  onSearch,
-  onSelect,
-  poweredByGiphy,
-  poweredByGiphyImage,
-  rating,
-  searchFormClassName,
-  searchPlaceholder,
-  wrapperClassName,
-}: Props) => {
-  useStyle('Index', styles)
+const ReactGiphySearchBox = forwardRef((props, ref) => {
+  const {
+    apiKey,
+    autoFocus,
+    gifListHeight,
+    gifPerPage,
+    imageBackgroundColor,
+    imageRenditionFileType,
+    imageRenditionName,
+    library,
+    listItemClassName,
+    listWrapperClassName,
+    loadingImage,
+    masonryConfig,
+    messageError,
+    messageLoading,
+    messageNoMatches,
+    onSearch,
+    onSelect,
+    poweredByGiphy,
+    poweredByGiphyImage,
+    rating,
+    searchFormClassName,
+    searchPlaceholder,
+    wrapperClassName,
+    externalCss,
+  }: Props = props;
+
+  useStyle('Index', !externalCss ? styles : null);
   const { query, handleInputChange, handleSubmit } = useSearchForm()
   const debouncedQuery = useDebounce(query, 500)
 
@@ -118,6 +122,7 @@ const ReactGiphySearchBox = ({
     >
       <SearchForm
         value={query}
+        externalCss={externalCss}
         setValue={handleInputChange}
         onSubmit={handleSubmit}
         loadingData={loading}
@@ -131,15 +136,26 @@ const ReactGiphySearchBox = ({
           listWrapperClassName ? ` ${listWrapperClassName}` : ''
         }`}
         style={{ height: gifListHeight }}
+        ref={ref}
       >
         <Alert
           show={data.length === 0 && !loading && !error && !firstRun}
           message={messageNoMatches}
+          externalCss={externalCss}
         />
 
-        <Alert show={error} message={messageError} />
+        <Alert
+          show={error}
+          message={messageError}
+          externalCss={externalCss}
+        />
 
-        <Spinner show={loading} message={messageLoading} image={loadingImage} />
+        <Spinner
+          show={loading}
+          externalCss={externalCss}
+          message={messageLoading}
+          image={loadingImage}
+        />
 
         <InfiniteScroll
           pageStart={0}
@@ -151,6 +167,7 @@ const ReactGiphySearchBox = ({
             !firstRun && (
               <div key="loading">
                 <Spinner
+                  externalCss={externalCss}
                   show={loading}
                   message={messageLoading}
                   image={loadingImage}
@@ -161,11 +178,12 @@ const ReactGiphySearchBox = ({
         >
           {data.length > 0 && (
             <MasonryLayout sizes={masonryConfig}>
-              {data.map(item => (
+              {data.map((item, index) => (
                 <ImageItem
+                  externalCss={externalCss}
                   item={item}
                   size={masonryConfigMatchMedia.imageWidth}
-                  key={item.id}
+                  key={`${item.id}_${index}`}
                   listItemClassName={listItemClassName}
                   onSelect={onSelect}
                   backgroundColor={imageBackgroundColor}
@@ -177,10 +195,10 @@ const ReactGiphySearchBox = ({
           )}
         </InfiniteScroll>
       </div>
-      {poweredByGiphy && <PoweredByGiphy image={poweredByGiphyImage} />}
+      {poweredByGiphy && <PoweredByGiphy externalCss={externalCss} image={poweredByGiphyImage} />}
     </div>
   )
-}
+});
 
 ReactGiphySearchBox.defaultProps = {
   autoFocus: false,
@@ -204,6 +222,7 @@ ReactGiphySearchBox.defaultProps = {
   searchFormClassName: '',
   searchPlaceholder: 'Search for GIFs',
   wrapperClassName: '',
+  externalCss: false,
 }
 
 export default ReactGiphySearchBox

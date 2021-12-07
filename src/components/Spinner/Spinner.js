@@ -7,11 +7,12 @@ import SpinnerIcon from '../../assets/SpinnerIcon'
 type Props = {
   show: boolean,
   message: string,
+  externalCss: boolean,
   image: ?string,
 }
 
-const Spinner = ({ show, message, image }: Props) => {
-  useStyle('Spinner', styles)
+const Spinner = ({ show, message, image, externalCss }: Props) => {
+  useStyle(!externalCss ? 'Spinner' : null, styles)
 
   return (
     show && (

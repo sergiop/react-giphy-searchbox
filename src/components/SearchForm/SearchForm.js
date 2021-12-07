@@ -10,6 +10,7 @@ type Props = {
   setValue: Function,
   value: string,
   autoFocus: boolean,
+  externalCss: boolean,
 }
 
 const SearchForm = ({
@@ -19,8 +20,9 @@ const SearchForm = ({
   setValue,
   value,
   autoFocus,
+  externalCss,
 }: Props) => {
-  useStyle('SearchForm', styles)
+  useStyle(!externalCss ? 'SearchForm' : null, styles)
 
   return (
     <form

@@ -12,6 +12,7 @@ type Props = {
   listItemClassName: string,
   onSelect: Function,
   size: number,
+  externalCss: boolean,
 }
 
 const getUrl = (fileType: ImageRenditionFileType): string => {
@@ -30,8 +31,9 @@ const ImageItem = ({
   size,
   listItemClassName,
   onSelect,
+  externalCss,
 }: Props) => {
-  useStyle('ImageItem', styles)
+  useStyle(!externalCss ? 'ImageItem' : null, styles)
 
   return (
     <button

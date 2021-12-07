@@ -6,10 +6,11 @@ import PoweredByGiphyLogo from '../../assets/PoweredByGiphyLogo'
 
 type Props = {
   image: ?string,
+  externalCss: boolean,
 }
 
-const PoweredByGiphy = ({ image }: Props) => {
-  useStyle('PoweredByGiphy', styles)
+const PoweredByGiphy = ({ image, externalCss }: Props) => {
+  useStyle(!externalCss ? 'PoweredByGiphy' : null, styles)
 
   return (
     <div className="reactGiphySearchbox-poweredByGiphy">

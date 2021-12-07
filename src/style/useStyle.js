@@ -13,7 +13,7 @@ export function addStyle(name, rules) {
 }
 
 export function useStyle(name, rules) {
-  addStyle(name, rules)
+  name && addStyle(name, rules)
 }
 
 if (module.hot) {

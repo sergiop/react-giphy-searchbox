@@ -15,6 +15,9 @@
 [![npm package][npm-badge]][npm]
 [![Codecov][codecov-badge]][Codecov]
 
+---
+
+**Please note: This is custom fork of [react-giphy-searchbox](https://www.npmjs.com/package/react-giphy-searchbox) with updated version of react and some bug fixes.**
 
 ---
 
@@ -93,6 +96,8 @@ render(<App />, document.getElementById("root"))
 | `listWrapperClassName`   | `string`              | Additional CSS class for the `<div>` that wrap the GIFs list.                                                                                                                                                                                                              |
 | `listItemClassName`      | `string`              | Additional CSS class for the `<button>` that wrap the single image.                                                                                                                                                                                                        |
 | `imageBackgroundColor`   | `string`              | Set the Giphy's image item background color, useful when `libray` prop is set to `stickers`, since stickers have transparent background. <br />*Default:* `#eee`                                                                                                           |
+| `ref`                    | `any`                 | Allows parent components pass down (i.e., “forward”) refs to their children, in this case it returns element with classname `reactGiphySearchbox-listWrapper` |
+| `externalCss`            | `boolean`             | Removes all internal css  <br />*Default:* `false` |
 
 ### Responsive options
 `masonryConfig` prop allow you to define responsiveness of the component. This prop accept an array of objects describing the masonry's properties at different breakpoints.

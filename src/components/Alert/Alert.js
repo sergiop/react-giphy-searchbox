@@ -5,11 +5,12 @@ import { styles } from './alertStyles'
 
 type Props = {
   show: boolean,
+  externalCss: boolean,
   message: string,
 }
 
-const Alert = ({ show, message }: Props) => {
-  useStyle('Alert', styles)
+const Alert = ({ show, message, externalCss }: Props) => {
+  useStyle(!externalCss ? 'Alert' : null, styles)
 
   return (
     show && (
