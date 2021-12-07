@@ -11,10 +11,6 @@
 </p>
 <br>
 
-[![Travis][build-badge]][build]
-[![npm package][npm-badge]][npm]
-[![Codecov][codecov-badge]][Codecov]
-
 ---
 
 **Please note: This is custom fork of [react-giphy-searchbox](https://www.npmjs.com/package/react-giphy-searchbox) with updated version of react and some bug fixes.**
