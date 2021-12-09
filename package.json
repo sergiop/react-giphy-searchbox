@@ -1,6 +1,6 @@
 {
   "name": "perfect-giphy-searchbox",
-  "version": "1.5.6",
+  "version": "1.5.7",
   "description": "React Giphy Searchbox",
   "main": "lib/index.js",
   "module": "es/index.js",
