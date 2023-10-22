@@ -1,0 +1,13 @@
+.component {
+  box-sizing: border-box;
+}
+
+.component *,
+.component *:before,
+.component *:after {
+  box-sizing: inherit;
+}
+
+.list {
+  overflow-y: auto;
+}
