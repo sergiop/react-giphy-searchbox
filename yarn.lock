@@ -585,6 +585,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/bricks.js@npm:^1.8.4":
+  version: 1.8.4
+  resolution: "@types/bricks.js@npm:1.8.4"
+  checksum: 84024cf05d53b95d6d5977b526ed5fbda986f2129fe552cb07d80fe93d37d2f63c3d471e3360760d027216e02472ae94e0353d174821a06d0278f2d1450f324b
+  languageName: node
+  linkType: hard
+
 "@types/estree@npm:^1.0.0":
   version: 1.0.3
   resolution: "@types/estree@npm:1.0.3"
@@ -621,6 +628,15 @@ __metadata:
   dependencies:
     "@types/react": "*"
   checksum: 890289c70d1966c168037637c09cacefe6205bdd27a33252144a6b432595a2943775ac1a1accac0beddaeb67f8fdf721e076acb1adc990b08e51c3d9fd4e780c
+  languageName: node
+  linkType: hard
+
+"@types/react-infinite-scroller@npm:^1.2.4":
+  version: 1.2.4
+  resolution: "@types/react-infinite-scroller@npm:1.2.4"
+  dependencies:
+    "@types/react": "*"
+  checksum: 3fa8c9ea96efd880b98935f7e24a122c59aa46bc1522d38a66c542a6e74c3ed726e2e96613a92a5a541d2c9d438b50fdf4ead31ac0991faed81777bf55b0e766
   languageName: node
   linkType: hard
 
@@ -1052,6 +1068,15 @@ __metadata:
   dependencies:
     fill-range: ^7.0.1
   checksum: e2a8e769a863f3d4ee887b5fe21f63193a891c68b612ddb4b68d82d1b5f3ff9073af066c343e9867a393fe4c2555dcb33e89b937195feb9c1613d259edfcd459
+  languageName: node
+  linkType: hard
+
+"bricks.js@npm:^1.8.0":
+  version: 1.8.0
+  resolution: "bricks.js@npm:1.8.0"
+  dependencies:
+    knot.js: ^1.1.5
+  checksum: e00e67d48814efebe464fa46f28ac1fb9fb4f42c3bfc239f1dc9c892b0947a38de2b1daa7f1389a554526774d484fbba49536924ab4b6c78732ec44c7a94a0fb
   languageName: node
   linkType: hard
 
@@ -2037,6 +2062,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"knot.js@npm:^1.1.5":
+  version: 1.1.5
+  resolution: "knot.js@npm:1.1.5"
+  checksum: 964be5081d6e40f4a6c37a481707b40ed4d3ce55a3a9288d5d71333a2618eb7f6780be3ddb50ad9808f48570fbf50375ff2d8206cb2b774c98d7fd65fead00a4
+  languageName: node
+  linkType: hard
+
 "kolorist@npm:^1.8.0":
   version: 1.8.0
   resolution: "kolorist@npm:1.8.0"
@@ -2091,7 +2123,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"loose-envify@npm:^1.1.0":
+"loose-envify@npm:^1.1.0, loose-envify@npm:^1.4.0":
   version: 1.4.0
   resolution: "loose-envify@npm:1.4.0"
   dependencies:
@@ -2306,31 +2338,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"my-component-library@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "my-component-library@workspace:."
-  dependencies:
-    "@types/node": ^20.8.7
-    "@types/react": ^18.2.15
-    "@types/react-dom": ^18.2.7
-    "@typescript-eslint/eslint-plugin": ^6.0.0
-    "@typescript-eslint/parser": ^6.0.0
-    "@vitejs/plugin-react-swc": ^3.3.2
-    eslint: ^8.45.0
-    eslint-plugin-react-hooks: ^4.6.0
-    eslint-plugin-react-refresh: ^0.4.3
-    react: ^18.2.0
-    react-dom: ^18.2.0
-    typescript: ^5.0.2
-    vite: ^4.4.5
-    vite-plugin-dts: ^3.6.0
-    vite-plugin-lib-inject-css: ^1.3.0
-  peerDependencies:
-    react: ^18.2.0
-    react-dom: ^18.2.0
-  languageName: unknown
-  linkType: soft
-
 "nanoid@npm:^3.3.6":
   version: 3.3.6
   resolution: "nanoid@npm:3.3.6"
@@ -2395,6 +2402,13 @@ __metadata:
     gauge: ^4.0.3
     set-blocking: ^2.0.0
   checksum: ae238cd264a1c3f22091cdd9e2b106f684297d3c184f1146984ecbe18aaa86343953f26b9520dedd1b1372bc0316905b736c1932d778dbeb1fcf5a1001390e2a
+  languageName: node
+  linkType: hard
+
+"object-assign@npm:^4.1.1":
+  version: 4.1.1
+  resolution: "object-assign@npm:4.1.1"
+  checksum: fcc6e4ea8c7fe48abfbb552578b1c53e0d194086e2e6bbbf59e0a536381a292f39943c6e9628af05b5528aa5e3318bb30d6b2e53cadaf5b8fe9e12c4b69af23f
   languageName: node
   linkType: hard
 
@@ -2544,6 +2558,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"prop-types@npm:^15.5.8":
+  version: 15.8.1
+  resolution: "prop-types@npm:15.8.1"
+  dependencies:
+    loose-envify: ^1.4.0
+    object-assign: ^4.1.1
+    react-is: ^16.13.1
+  checksum: c056d3f1c057cb7ff8344c645450e14f088a915d078dcda795041765047fa080d38e5d626560ccaac94a4e16e3aa15f3557c1a9a8d1174530955e992c675e459
+  languageName: node
+  linkType: hard
+
 "punycode@npm:^2.1.0":
   version: 2.3.0
   resolution: "punycode@npm:2.3.0"
@@ -2567,6 +2592,53 @@ __metadata:
   peerDependencies:
     react: ^18.2.0
   checksum: 7d323310bea3a91be2965f9468d552f201b1c27891e45ddc2d6b8f717680c95a75ae0bc1e3f5cf41472446a2589a75aed4483aee8169287909fcd59ad149e8cc
+  languageName: node
+  linkType: hard
+
+"react-giphy-searchbox@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "react-giphy-searchbox@workspace:."
+  dependencies:
+    "@types/bricks.js": ^1.8.4
+    "@types/node": ^20.8.7
+    "@types/react": ^18.2.15
+    "@types/react-dom": ^18.2.7
+    "@types/react-infinite-scroller": ^1.2.4
+    "@typescript-eslint/eslint-plugin": ^6.0.0
+    "@typescript-eslint/parser": ^6.0.0
+    "@vitejs/plugin-react-swc": ^3.3.2
+    bricks.js: ^1.8.0
+    eslint: ^8.45.0
+    eslint-plugin-react-hooks: ^4.6.0
+    eslint-plugin-react-refresh: ^0.4.3
+    react: ^18.2.0
+    react-dom: ^18.2.0
+    react-infinite-scroller: ^1.2.4
+    typescript: ^5.0.2
+    vite: ^4.4.5
+    vite-plugin-dts: ^3.6.0
+    vite-plugin-lib-inject-css: ^1.3.0
+  peerDependencies:
+    react: ^18.2.0
+    react-dom: ^18.2.0
+  languageName: unknown
+  linkType: soft
+
+"react-infinite-scroller@npm:^1.2.4":
+  version: 1.2.6
+  resolution: "react-infinite-scroller@npm:1.2.6"
+  dependencies:
+    prop-types: ^15.5.8
+  peerDependencies:
+    react: ^0.14.9 || ^15.3.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
+  checksum: 5f5aae76c484b4039bada87070d5f8c54d2786697ae600be19a68f4e85158ff550122f15dccc5997d8b01fa487da47b9ffbc3e9d9a29f2cf71c77275f72551fd
+  languageName: node
+  linkType: hard
+
+"react-is@npm:^16.13.1":
+  version: 16.13.1
+  resolution: "react-is@npm:16.13.1"
+  checksum: f7a19ac3496de32ca9ae12aa030f00f14a3d45374f1ceca0af707c831b2a6098ef0d6bdae51bd437b0a306d7f01d4677fcc8de7c0d331eb47ad0f46130e53c5f
   languageName: node
   linkType: hard
 
