@@ -1,6 +1,21 @@
-export const dataFetchReducer = (state, action) => {
-  const { payload, pagination } = action
+import { GIFItem, Pagination } from "../types"
 
+interface State {
+  loading: boolean
+  error: boolean
+  lastPage: boolean
+  data: GIFItem[]
+}
+
+type Action = {
+  type: 'FETCH_INIT' | 'FETCH_MORE_INIT' | 'FETCH_FAILURE';
+} | {
+  type: 'FETCH_SUCCESS' | 'FETCH_MORE_SUCCESS';
+  payload: GIFItem[];
+  pagination: Pagination;
+}
+
+export const dataFetchReducer = (state: State, action: Action) => {
   switch (action.type) {
     case 'FETCH_INIT':
       return {
@@ -22,18 +37,18 @@ export const dataFetchReducer = (state, action) => {
         ...state,
         loading: false,
         error: false,
-        data: payload,
+        data: action.payload,
         lastPage:
-          pagination.total_count - pagination.offset <= pagination.count,
+          action.pagination.total_count - action.pagination.offset <= action.pagination.count,
       }
     case 'FETCH_MORE_SUCCESS':
       return {
         ...state,
         loading: false,
         error: false,
-        data: [...state.data, ...payload],
+        data: [...state.data, ...action.payload],
         lastPage:
-          pagination.total_count - pagination.offset <= pagination.count,
+          action.pagination.total_count - action.pagination.offset <= action.pagination.count,
       }
     case 'FETCH_FAILURE':
       return {
