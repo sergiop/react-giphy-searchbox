@@ -1,15 +1,18 @@
 import { useReducer } from 'react'
-import dataFetchReducer from '../reducers/dataFetchReducer'
+import { dataFetchReducer } from '../../reducers/dataFetchReducer'
+import { GiphyResponse } from './types'
+
+const initialState = {
+  loading: false,
+  error: false,
+  data: [],
+  lastPage: false,
+}
 
 export const useApi = () => {
-  const [state, dispatch] = useReducer(dataFetchReducer, {
-    loading: false,
-    error: false,
-    data: [],
-    lastPage: false,
-  })
+  const [state, dispatch] = useReducer(dataFetchReducer, initialState)
 
-  const fetchImages = (url, isMore) => {
+  const fetchImages = (url: string, isMore: boolean) => {
     if (isMore) {
       dispatch({ type: 'FETCH_MORE_INIT' })
     } else {
@@ -17,11 +20,9 @@ export const useApi = () => {
     }
 
     fetch(url)
-      .then(response => {
+      .then<GiphyResponse>(response => {
         if (!response.ok) {
-          return response.json().then(json => {
-            throw json
-          })
+          throw new Error(response.statusText)
         }
 
         return response.json()
@@ -50,5 +51,5 @@ export const useApi = () => {
       })
   }
 
-  return [state, fetchImages]
+  return { state, fetchImages }
 }

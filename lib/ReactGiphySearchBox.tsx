@@ -9,7 +9,7 @@ import { Spinner } from "./components/Spinner";
 import { useSearchForm } from "./hooks/useSearchForm";
 import { useDebounce } from "./hooks/useDebounce";
 import { useMedia } from "./hooks/useMedia";
-import { useApi } from "./hooks/useApi";
+import { useApi } from "./hooks/useApi/useApi";
 import {
   getComponentWrapperWidth,
   getDefaultMasonryConfig,
@@ -27,7 +27,7 @@ type MasonryConfig = {
 
 export type ImageRenditionFileType = "gif" | "webp";
 
-interface ReactGiphySearchBoxProps {
+export interface ReactGiphySearchBoxProps {
   apiKey: string;
   autoFocus: boolean;
   gifListHeight: string;
@@ -78,7 +78,6 @@ export const ReactGiphySearchBox = ({
   searchPlaceholder = 'Search for GIFs',
   wrapperClassName = '',
 }: ReactGiphySearchBoxProps) => {
-  useStyle("Index", styles);
   const { query, handleInputChange, handleSubmit } = useSearchForm();
   const debouncedQuery = useDebounce(query, 500);
 
@@ -86,7 +85,7 @@ export const ReactGiphySearchBox = ({
   const apiUrl = (offset) =>
     `https://api.giphy.com/v1/${library}/${apiEndpoint}?api_key=${apiKey}&limit=${gifPerPage}&rating=${rating}&offset=${offset}&q=${query}`;
 
-  const [{ data, loading, error, lastPage }, fetchImages] = useApi();
+  const { state: { data, loading, error, lastPage }, fetchImages } = useApi();
 
   const masonryConfigMatchMedia = useMedia(
     getMediaBreakpoints(masonryConfig),
@@ -98,7 +97,7 @@ export const ReactGiphySearchBox = ({
   const [firstRun, setFirstRun] = useState(true);
   const isFirstRun = useRef(true);
   useEffect(() => {
-    fetchImages(apiUrl(0));
+    fetchImages(apiUrl(0), false);
     onSearch(query);
 
     if (isFirstRun.current) {
