@@ -17,40 +17,35 @@ import {
   getMediaBreakpoints,
 } from "./utils/masonry";
 import styles from "./styles.module.css";
-
-type MasonryConfig = {
-  mq?: string;
-  columns: number;
-  imageWidth: number;
-  gutter: number;
-};
+import { GIFItem, Images } from "./types/api";
+import { MasonryConfig } from "./types/masonry";
 
 export type ImageRenditionFileType = "gif" | "webp";
 
 export interface ReactGiphySearchBoxProps {
   apiKey: string;
-  autoFocus: boolean;
-  gifListHeight: string;
-  gifPerPage: number;
-  imageBackgroundColor: string;
-  imageRenditionFileType: ImageRenditionFileType;
-  imageRenditionName: string;
-  library: "gifs" | "stickers";
-  listItemClassName: string;
-  listWrapperClassName: string;
+  autoFocus?: boolean;
+  gifListHeight?: string;
+  gifPerPage?: number;
+  imageBackgroundColor?: string;
+  imageRenditionFileType?: ImageRenditionFileType;
+  imageRenditionName?: keyof Images;
+  library?: "gifs" | "stickers";
+  listItemClassName?: string;
+  listWrapperClassName?: string;
   loadingImage?: string;
-  masonryConfig: Array<MasonryConfig>;
-  messageError: string;
-  messageLoading: string;
-  messageNoMatches: string;
-  onSearch: Function;
-  onSelect: Function;
-  poweredByGiphy: boolean;
+  masonryConfig?: MasonryConfig;
+  messageError?: string;
+  messageLoading?: string;
+  messageNoMatches?: string;
+  onSearch?: (query: string) => void;
+  onSelect: (item: GIFItem) => void;
+  poweredByGiphy?: boolean;
   poweredByGiphyImage?: string;
-  rating: string;
-  searchFormClassName: string;
-  searchPlaceholder: string;
-  wrapperClassName: string;
+  rating?: string;
+  searchFormClassName?: string;
+  searchPlaceholder?: string;
+  wrapperClassName?: string;
 }
 
 export const ReactGiphySearchBox = ({
@@ -62,27 +57,27 @@ export const ReactGiphySearchBox = ({
   imageRenditionFileType = 'gif',
   imageRenditionName = 'fixed_width_downsampled',
   library = 'gifs',
-  listItemClassName = '',
-  listWrapperClassName = '',
+  listItemClassName,
+  listWrapperClassName,
   loadingImage,
   masonryConfig = [{ columns: 2, imageWidth: 120, gutter: 5 }],
   messageError = 'Oops! Something went wrong. Please, try again.',
   messageLoading = 'Loading...',
   messageNoMatches = 'No matches found.',
-  onSearch = () => {},
+  onSearch,
   onSelect,
   poweredByGiphy = true,
   poweredByGiphyImage,
   rating = 'g',
-  searchFormClassName = '',
+  searchFormClassName,
   searchPlaceholder = 'Search for GIFs',
-  wrapperClassName = '',
+  wrapperClassName,
 }: ReactGiphySearchBoxProps) => {
   const { query, handleInputChange, handleSubmit } = useSearchForm();
   const debouncedQuery = useDebounce(query, 500);
 
   const apiEndpoint = query ? "search" : "trending";
-  const apiUrl = (offset) =>
+  const apiUrl = (offset: number) =>
     `https://api.giphy.com/v1/${library}/${apiEndpoint}?api_key=${apiKey}&limit=${gifPerPage}&rating=${rating}&offset=${offset}&q=${query}`;
 
   const { state: { data, loading, error, lastPage }, fetchImages } = useApi();
@@ -96,13 +91,19 @@ export const ReactGiphySearchBox = ({
   // Fetch Giphy Api on component mount and on search query change
   const [firstRun, setFirstRun] = useState(true);
   const isFirstRun = useRef(true);
-  useEffect(() => {
-    fetchImages(apiUrl(0), false);
-    onSearch(query);
 
+  useEffect(() => {
     if (isFirstRun.current) {
       isFirstRun.current = false;
       setFirstRun(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    fetchImages(apiUrl(0), false);
+
+    if (onSearch) {
+      onSearch(query);
     }
   }, [debouncedQuery]);
 
@@ -117,7 +118,6 @@ export const ReactGiphySearchBox = ({
         value={query}
         setValue={handleInputChange}
         onSubmit={handleSubmit}
-        loadingData={loading}
         searchFormClassName={searchFormClassName}
         placeholder={searchPlaceholder}
         autoFocus={autoFocus}
@@ -145,7 +145,7 @@ export const ReactGiphySearchBox = ({
           useWindow={false}
           initialLoad={false}
           loader={
-            !firstRun && (
+            !firstRun ? (
               <div key="loading">
                 <Spinner
                   show={loading}
@@ -153,7 +153,7 @@ export const ReactGiphySearchBox = ({
                   image={loadingImage}
                 />
               </div>
-            )
+            ) : undefined
           }
         >
           {data.length > 0 && (
@@ -174,6 +174,7 @@ export const ReactGiphySearchBox = ({
           )}
         </InfiniteScroll>
       </div>
+
       {poweredByGiphy && <PoweredByGiphy image={poweredByGiphyImage} />}
     </div>
   );

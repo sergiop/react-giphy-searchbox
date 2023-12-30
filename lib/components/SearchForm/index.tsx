@@ -1,10 +1,11 @@
+import { ChangeEvent, FormEvent } from 'react'
 import styles from "./styles.module.css";
 
 interface SearchFormProps {
-  onSubmit: Function,
+  onSubmit: (e: FormEvent<HTMLFormElement>) => void,
   placeholder: string,
-  searchFormClassName: string,
-  setValue: Function,
+  searchFormClassName: string | undefined,
+  setValue: (e: ChangeEvent<HTMLInputElement>) => void,
   value: string,
   autoFocus: boolean,
 }

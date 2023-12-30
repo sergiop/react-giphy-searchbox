@@ -6,7 +6,7 @@ interface BaseImage {
     height: string;
 }
 
-interface Images {
+export interface Images {
     fixed_height: BaseImage & {
         size: string;
         mp4: string;
@@ -71,13 +71,14 @@ interface Images {
         webp: string;
         webp_size: string;
     };
-    looping: { mp4: string };
-    preview: {
-        width: string;
-        height: string;
-        mp4: string;
-        mp4_size: string;
-    };
+    // TO-DO: manage looping and prewiew Items
+    // looping: { mp4: string };
+    // preview: {
+    //     width: string;
+    //     height: string;
+    //     mp4: string;
+    //     mp4_size: string;
+    // };
     preview_gif: BaseImage & {
         size: string;
     };
