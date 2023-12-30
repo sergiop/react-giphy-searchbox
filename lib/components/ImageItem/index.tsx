@@ -1,6 +1,6 @@
-import type { ImageRenditionFileType } from "../../ReactGiphySearchBox";
-import { GIFItem, Images } from "../../types/api";
-import styles from "./styles.module.css";
+import type { ImageRenditionFileType } from '../../ReactGiphySearchBox';
+import { GIFItem, Images } from '../../types/api';
+import styles from './styles.module.css';
 
 interface ImageItemProps {
   backgroundColor: string;
@@ -23,7 +23,7 @@ const getUrl = (
   return image.url;
 };
 
-export const ImageItem = ({
+export function ImageItem({
   backgroundColor,
   item,
   imageRenditionName,
@@ -31,20 +31,22 @@ export const ImageItem = ({
   size,
   listItemClassName,
   onSelect,
-}: ImageItemProps) => {
-  const image = item.images[imageRenditionName]
+}: ImageItemProps) {
+  const image = item.images[imageRenditionName];
 
   return (
     <button
       data-testid="ImageItemButton"
       type="button"
       className={`${styles.imageItem}${
-        listItemClassName ? ` ${listItemClassName}` : ""
+        listItemClassName ? ` ${listItemClassName}` : ''
       }`}
       style={{
         backgroundColor,
         width: `${size}px`,
-        height: `${(parseInt(image.height) * size) / parseInt(image.width)}px`,
+        height: `${
+          (parseInt(image.height, 10) * size) / parseInt(image.width, 10)
+        }px`,
       }}
       onClick={() => onSelect(item)}
     >
@@ -58,4 +60,4 @@ export const ImageItem = ({
       />
     </button>
   );
-};
+}

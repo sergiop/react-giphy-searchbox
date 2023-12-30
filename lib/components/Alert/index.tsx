@@ -1,20 +1,16 @@
-import styles from './styles.module.css'
+import styles from './styles.module.css';
 
 interface AlertProps {
-  show: boolean,
-  message: string,
+  show: boolean;
+  message: string;
 }
 
-export const Alert = ({ show, message }: AlertProps) => {
+export function Alert({ show, message }: AlertProps) {
   return (
     show && (
-      <p
-        role="alert"
-        data-testid="Alert"
-        className={styles.alert}
-      >
+      <p role="alert" data-testid="Alert" className={styles.alert}>
         {message}
       </p>
     )
-  )
+  );
 }

@@ -3,4 +3,4 @@ export type MasonryConfig = {
   columns: number;
   imageWidth: number;
   gutter: number;
-}[]
+}[];

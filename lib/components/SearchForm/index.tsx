@@ -1,23 +1,23 @@
-import { ChangeEvent, FormEvent } from 'react'
-import styles from "./styles.module.css";
+import { ChangeEvent, FormEvent } from 'react';
+import styles from './styles.module.css';
 
 interface SearchFormProps {
-  onSubmit: (e: FormEvent<HTMLFormElement>) => void,
-  placeholder: string,
-  searchFormClassName: string | undefined,
-  setValue: (e: ChangeEvent<HTMLInputElement>) => void,
-  value: string,
-  autoFocus: boolean,
+  onSubmit: (e: FormEvent<HTMLFormElement>) => void;
+  placeholder: string;
+  searchFormClassName: string | undefined;
+  setValue: (e: ChangeEvent<HTMLInputElement>) => void;
+  value: string;
+  autoFocus: boolean;
 }
 
-export const SearchForm = ({
+export function SearchForm({
   onSubmit,
   placeholder,
   searchFormClassName,
   setValue,
   value,
   autoFocus,
-}: SearchFormProps) => {
+}: SearchFormProps) {
   return (
     <form
       data-testid="SearchFormForm"
@@ -35,8 +35,9 @@ export const SearchForm = ({
         value={value}
         name="search"
         className={styles.input}
+        // eslint-disable-next-line jsx-a11y/no-autofocus
         autoFocus={autoFocus}
       />
     </form>
-  )
+  );
 }

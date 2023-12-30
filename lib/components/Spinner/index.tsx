@@ -1,5 +1,5 @@
-import { SpinnerIcon } from "./SpinnerIcon";
-import styles from "./styles.module.css";
+import { SpinnerIcon } from './SpinnerIcon';
+import styles from './styles.module.css';
 
 interface SpinnerProps {
   show: boolean;
@@ -7,7 +7,7 @@ interface SpinnerProps {
   image?: string;
 }
 
-export const Spinner = ({ show, message, image }: SpinnerProps) => {
+export function Spinner({ show, message, image }: SpinnerProps) {
   return (
     show && (
       <div role="status" className={styles.wrapper}>
@@ -20,4 +20,4 @@ export const Spinner = ({ show, message, image }: SpinnerProps) => {
       </div>
     )
   );
-};
+}

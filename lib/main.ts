@@ -1,1 +1,1 @@
-export { ReactGiphySearchBox } from './ReactGiphySearchBox'
+export { ReactGiphySearchBox } from './ReactGiphySearchBox';
