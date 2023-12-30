@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-export const useDebounce = (value, delay) => {
+export const useDebounce = <T>(value: T, delay: number) => {
   const [debouncedValue, setDebouncedValue] = useState(value)
 
   useEffect(
@@ -25,7 +25,7 @@ export const useDebounce = (value, delay) => {
     // Only re-call effect if value changes
     // You could also add the "delay" var to inputs array if you
     // need to be able to change that dynamically.
-    [value],
+    [delay, value],
   )
 
   return debouncedValue

@@ -1,4 +1,4 @@
-import { GIFItem, Pagination } from "../types"
+import { GIFItem, Pagination } from "../types/api"
 
 interface State {
   loading: boolean

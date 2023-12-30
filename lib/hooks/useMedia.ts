@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
+import { MasonryConfig } from '../types/masonry'
 
-export const useMedia = (queries, values, defaultValue) => {
+export const useMedia = (queries: string[], values: MasonryConfig, defaultValue: MasonryConfig[0]) => {
   const mediaQueryLists = queries.map(q => window.matchMedia(q))
 
   const getValue = () => {

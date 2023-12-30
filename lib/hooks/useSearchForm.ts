@@ -1,14 +1,14 @@
-import { useState } from 'react'
+import { ChangeEvent, FormEvent, useState } from 'react'
 
 export const useSearchForm = () => {
   const [query, setInputs] = useState('')
 
-  const handleSubmit = e => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     if (e) {
       e.preventDefault()
     }
   }
-  const handleInputChange = e => {
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     e.persist()
     setInputs(e.target.value)
   }

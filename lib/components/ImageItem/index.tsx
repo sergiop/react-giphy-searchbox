@@ -1,22 +1,26 @@
-import type { ImageRenditionFileType } from "../../index";
+import type { ImageRenditionFileType } from "../../ReactGiphySearchBox";
+import { GIFItem, Images } from "../../types/api";
 import styles from "./styles.module.css";
 
 interface ImageItemProps {
   backgroundColor: string;
-  item: Object;
-  imageRenditionName: string;
+  item: GIFItem;
+  imageRenditionName: keyof Images;
   imageRenditionFileType: ImageRenditionFileType;
-  listItemClassName: string;
-  onSelect: Function;
+  listItemClassName: string | undefined;
+  onSelect: (item: GIFItem) => void;
   size: number;
 }
 
-const getUrl = (fileType: ImageRenditionFileType): string => {
-  if (fileType === "gif") {
-    return "url";
+const getUrl = (
+  image: Images[keyof Images],
+  fileType: ImageRenditionFileType,
+): string => {
+  if (fileType === 'webp' && 'webp' in image) {
+    return image.webp;
   }
 
-  return fileType;
+  return image.url;
 };
 
 export const ImageItem = ({
@@ -28,6 +32,8 @@ export const ImageItem = ({
   listItemClassName,
   onSelect,
 }: ImageItemProps) => {
+  const image = item.images[imageRenditionName]
+
   return (
     <button
       data-testid="ImageItemButton"
@@ -38,19 +44,16 @@ export const ImageItem = ({
       style={{
         backgroundColor,
         width: `${size}px`,
-        height: `${
-          (item.images[imageRenditionName].height * size) /
-          item.images[imageRenditionName].width
-        }px`,
+        height: `${(parseInt(image.height) * size) / parseInt(image.width)}px`,
       }}
       onClick={() => onSelect(item)}
     >
       <img
         data-testid="ImageItemImage"
-        width={item.images[imageRenditionName].width}
-        height={item.images[imageRenditionName].height}
+        width={image.width}
+        height={image.height}
         alt={item.title}
-        src={item.images[imageRenditionName][getUrl(imageRenditionFileType)]}
+        src={getUrl(image, imageRenditionFileType)}
         className={styles.image}
       />
     </button>
