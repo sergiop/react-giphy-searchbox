@@ -1,14 +1,14 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react';
 
 export const useDebounce = <T>(value: T, delay: number) => {
-  const [debouncedValue, setDebouncedValue] = useState(value)
+  const [debouncedValue, setDebouncedValue] = useState(value);
 
   useEffect(
     () => {
       // Set debouncedValue to value (passed in) after the specified delay
       const handler = setTimeout(() => {
-        setDebouncedValue(value)
-      }, delay)
+        setDebouncedValue(value);
+      }, delay);
 
       // Return a cleanup function that will be called every time
       // useEffect is re-called. useEffect will only be re-called
@@ -19,14 +19,14 @@ export const useDebounce = <T>(value: T, delay: number) => {
       // search box, we don't want the debouncedValue to update until
       // they've stopped typing for more than 500ms.
       return () => {
-        clearTimeout(handler)
-      }
+        clearTimeout(handler);
+      };
     },
     // Only re-call effect if value changes
     // You could also add the "delay" var to inputs array if you
     // need to be able to change that dynamically.
     [delay, value],
-  )
+  );
 
-  return debouncedValue
-}
+  return debouncedValue;
+};

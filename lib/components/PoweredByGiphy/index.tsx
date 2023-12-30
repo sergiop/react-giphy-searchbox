@@ -1,11 +1,11 @@
-import { PoweredByGiphyLogo } from './PoweredByGiphyLogo'
-import styles from "./styles.module.css";
+import { PoweredByGiphyLogo } from './PoweredByGiphyLogo';
+import styles from './styles.module.css';
 
 type PoweredByGiphyProps = {
-  image?: string,
-}
+  image?: string;
+};
 
-export const PoweredByGiphy = ({ image }: PoweredByGiphyProps) => {
+export function PoweredByGiphy({ image }: PoweredByGiphyProps) {
   return (
     <div className={styles.poweredByGiphy}>
       {image ? (
@@ -14,5 +14,5 @@ export const PoweredByGiphy = ({ image }: PoweredByGiphyProps) => {
         <PoweredByGiphyLogo />
       )}
     </div>
-  )
+  );
 }

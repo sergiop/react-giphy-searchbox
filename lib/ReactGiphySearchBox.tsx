@@ -1,26 +1,26 @@
-import { useEffect, useRef, useState } from "react";
-import InfiniteScroll from "react-infinite-scroller";
-import { SearchForm } from "./components/SearchForm";
-import { ImageItem } from "./components/ImageItem";
-import { PoweredByGiphy } from "./components/PoweredByGiphy";
-import { MasonryLayout } from "./components/MasonryLayout";
-import { Alert } from "./components/Alert";
-import { Spinner } from "./components/Spinner";
-import { useSearchForm } from "./hooks/useSearchForm";
-import { useDebounce } from "./hooks/useDebounce";
-import { useMedia } from "./hooks/useMedia";
-import { useApi } from "./hooks/useApi/useApi";
+import { useEffect, useRef, useState } from 'react';
+import InfiniteScroll from 'react-infinite-scroller';
+import { SearchForm } from './components/SearchForm';
+import { ImageItem } from './components/ImageItem';
+import { PoweredByGiphy } from './components/PoweredByGiphy';
+import { MasonryLayout } from './components/MasonryLayout';
+import { Alert } from './components/Alert';
+import { Spinner } from './components/Spinner';
+import { useSearchForm } from './hooks/useSearchForm';
+import { useDebounce } from './hooks/useDebounce';
+import { useMedia } from './hooks/useMedia';
+import { useApi } from './hooks/useApi/useApi';
 import {
   getComponentWrapperWidth,
   getDefaultMasonryConfig,
   getMasonryConfigExceptLast,
   getMediaBreakpoints,
-} from "./utils/masonry";
-import styles from "./styles.module.css";
-import { GIFItem, Images } from "./types/api";
-import { MasonryConfig } from "./types/masonry";
+} from './utils/masonry';
+import styles from './styles.module.css';
+import { GIFItem, Images } from './types/api';
+import { MasonryConfig } from './types/masonry';
 
-export type ImageRenditionFileType = "gif" | "webp";
+export type ImageRenditionFileType = 'gif' | 'webp';
 
 export interface ReactGiphySearchBoxProps {
   apiKey: string;
@@ -30,7 +30,7 @@ export interface ReactGiphySearchBoxProps {
   imageBackgroundColor?: string;
   imageRenditionFileType?: ImageRenditionFileType;
   imageRenditionName?: keyof Images;
-  library?: "gifs" | "stickers";
+  library?: 'gifs' | 'stickers';
   listItemClassName?: string;
   listWrapperClassName?: string;
   loadingImage?: string;
@@ -48,7 +48,7 @@ export interface ReactGiphySearchBoxProps {
   wrapperClassName?: string;
 }
 
-export const ReactGiphySearchBox = ({
+export function ReactGiphySearchBox({
   apiKey,
   autoFocus = false,
   gifListHeight = '300px',
@@ -72,20 +72,23 @@ export const ReactGiphySearchBox = ({
   searchFormClassName,
   searchPlaceholder = 'Search for GIFs',
   wrapperClassName,
-}: ReactGiphySearchBoxProps) => {
+}: ReactGiphySearchBoxProps) {
   const { query, handleInputChange, handleSubmit } = useSearchForm();
   const debouncedQuery = useDebounce(query, 500);
 
-  const apiEndpoint = query ? "search" : "trending";
+  const apiEndpoint = query ? 'search' : 'trending';
   const apiUrl = (offset: number) =>
     `https://api.giphy.com/v1/${library}/${apiEndpoint}?api_key=${apiKey}&limit=${gifPerPage}&rating=${rating}&offset=${offset}&q=${query}`;
 
-  const { state: { data, loading, error, lastPage }, fetchImages } = useApi();
+  const {
+    state: { data, loading, error, lastPage },
+    fetchImages,
+  } = useApi();
 
   const masonryConfigMatchMedia = useMedia(
     getMediaBreakpoints(masonryConfig),
     getMasonryConfigExceptLast(masonryConfig),
-    getDefaultMasonryConfig(masonryConfig)
+    getDefaultMasonryConfig(masonryConfig),
   );
 
   // Fetch Giphy Api on component mount and on search query change
@@ -110,7 +113,7 @@ export const ReactGiphySearchBox = ({
   return (
     <div
       className={`${styles.component}${
-        wrapperClassName ? ` ${wrapperClassName}` : ""
+        wrapperClassName ? ` ${wrapperClassName}` : ''
       }`}
       style={{ width: getComponentWrapperWidth(masonryConfigMatchMedia) }}
     >
@@ -125,7 +128,7 @@ export const ReactGiphySearchBox = ({
 
       <div
         className={`${styles.list}${
-          listWrapperClassName ? ` ${listWrapperClassName}` : ""
+          listWrapperClassName ? ` ${listWrapperClassName}` : ''
         }`}
         style={{ height: gifListHeight }}
       >
@@ -178,4 +181,4 @@ export const ReactGiphySearchBox = ({
       {poweredByGiphy && <PoweredByGiphy image={poweredByGiphyImage} />}
     </div>
   );
-};
+}
