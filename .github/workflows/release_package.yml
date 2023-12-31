@@ -70,10 +70,13 @@ jobs:
           git commit -m "chore: release ${{ env.NEW_VERSION }}"
           git tag ${{ env.NEW_VERSION }}
 
+      # Build package
+      - name: Build package
+        run: yarn build
+
       # Publish version to public repository
       - name: Publish
         run: |
-          yarn build
           echo "npmAuthToken: ${{ secrets.NPMJS_ACCESS_TOKEN }}" >> .yarnrc.yml
           yarn npm publish --access public --tag ${{ env.RELEASE_TAG }}
 
