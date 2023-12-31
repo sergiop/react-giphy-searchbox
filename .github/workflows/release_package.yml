@@ -73,6 +73,7 @@ jobs:
       # Publish version to public repository
       - name: Publish
         run: |
+          yarn build
           echo "npmAuthToken: ${{ secrets.NPMJS_ACCESS_TOKEN }}" >> .yarnrc.yml
           yarn npm publish --access public --tag ${{ env.RELEASE_TAG }}
 
