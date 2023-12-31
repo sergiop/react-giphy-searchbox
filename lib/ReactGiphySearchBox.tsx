@@ -17,7 +17,7 @@ import {
   getMediaBreakpoints,
 } from './utils/masonry';
 import styles from './styles.module.css';
-import { GIFItem, Images } from './types/api';
+import { GIFItem, Images, Rating } from './types/api';
 import { MasonryConfig } from './types/masonry';
 
 export type ImageRenditionFileType = 'gif' | 'webp';
@@ -42,7 +42,7 @@ export interface ReactGiphySearchBoxProps {
   onSelect: (item: GIFItem) => void;
   poweredByGiphy?: boolean;
   poweredByGiphyImage?: string;
-  rating?: string;
+  rating?: Rating;
   searchFormClassName?: string;
   searchPlaceholder?: string;
   wrapperClassName?: string;

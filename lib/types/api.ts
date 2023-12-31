@@ -1,4 +1,4 @@
-type Rating = 'y' | 'g' | 'pg' | 'pg-13' | 'r';
+export type Rating = 'y' | 'g' | 'pg' | 'pg-13' | 'r';
 
 interface BaseImage {
   url: string;
