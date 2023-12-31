@@ -26,9 +26,7 @@ Play with a simple responsive demo on [CodeSandbox](https://codesandbox.io/s/rea
 
 [![Edit react-giphy-searchbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/react-giphy-searchbox-l8dxc?fontsize=14)
 
-## Getting started
-
-### Installation
+## Installation
 
 ```
 yarn add react-giphy-searchbox
@@ -38,7 +36,7 @@ yarn add react-giphy-searchbox
 npm install react-giphy-searchbox --save
 ```
 
-### Basic example
+## Basic example
 
 ```javascript
 import React from 'react'
@@ -55,100 +53,169 @@ const App = () => (
 render(<App />, document.getElementById("root"))
 ```
 
-### Props
+## Props
 
-#### Required props
+### Required props
 
-`apiKey: string;`<br />
+#### apiKey
 Giphy's API key. Get your on https://developers.giphy.com.
+```jsx
+apiKey: string;
+```
 
-`onSelect: (item: GIFItem) => void;`<br />
+#### onSelect
 A callback which is triggered whenever a GIF is selected. It returns a Gif object in the format specified for an image from Giphy's API.
+```jsx
+onSelect: (item: GIFItem) => void;
+```
 
-#### Giphy options
+### Giphy options
 
-`library?: 'gifs' | 'stickers';`<br />
+#### library
 Giphy's library: choose between `gifs` or `stickers`. <br />
 *Default:* `gifs`
+```jsx
+library?: 'gifs' | 'stickers';
+```
 
-`rating?: 'y' | 'g' | 'pg' | 'pg-13' | 'r';`<br />
+#### rating
 Filters results by [specified rating](https://developers.giphy.com/docs/optional-settings/#rating).<br />
 *Default:* `g`
+```jsx
+rating?: 'y' | 'g' | 'pg' | 'pg-13' | 'r';
+```
 
-`imageRenditionFileType?: 'gif' | 'webp';`<br />
+#### imageRenditionFileType
 The image type to be returned. <br />
 *Default:* `gif`
+```jsx
+imageRenditionFileType?: 'gif' | 'webp';
+```
 
-`imageRenditionName?: keyof Images;`<br />
+#### imageRenditionName
 The type of [rendition](https://developers.giphy.com/docs/optional-settings/#rendition-guide) to be used. <br />
 *Default:* `fixed_width_downsampled`. <br />Please be careful with this setting, loading high quality gifs inside the masonry can reduce the performances.
+```jsx
+imageRenditionName?: keyof Images;
+```
 
 #### Other options
 
-`autoFocus?: boolean;`<br />
+#### autoFocus
 If true, the search form input field is focused by default on startup. <br />
 *Default:* `false`
+```jsx
+autoFocus?: boolean;
+```
 
-`gifListHeight?: string;`<br />
+#### gifListHeight
 The height of the returned GIF list. <br />
 *Default:* `300px`
+```jsx
+gifListHeight?: string;
+```
 
-`gifPerPage?: number;`<br />
+#### gifPerPage
 The maximum number of images to return per page. <br />
 *Default:* `20`
+```jsx
+gifPerPage?: number;
+```
 
-`imageBackgroundColor?: string;`<br />
+#### imageBackgroundColor
 Set the Giphy's image item background color, useful when `libray` prop is set to `stickers`, since stickers have transparent background. <br />
 *Default:* `#eee`
+```jsx
+imageBackgroundColor?: string;
+```
 
-`loadingImage?: string;`<br />
+#### loadingImage
 If you want to customize the loading spinner, use this prop to set an alternative `src` for the image.
+```jsx
+loadingImage?: string;
+```
 
-`masonryConfig?: MasonryConfig;`<br />
+#### masonryConfig
 An array of objects describing the masonry's properties at different breakpoints. [See specific chapter for further info.](#responsive-options) <br />
 *Default:* `[{ columns: 2, imageWidth: 120, gutter: 5 }]`
+```jsx
+masonryConfig?: MasonryConfig;
+```
 
-`onSearch?: (query: string) => void;`<br />
+#### onSearch
 A callback which is triggered whenever a search is performed. It returns the searched text string.
+```jsx
+onSearch?: (query: string) => void;
+```
 
-`poweredByGiphy?: boolean;`<br />
+#### poweredByGiphy
 You can choose to display or not display the **Powered by Giphy** badge at the bottom. Note that you need to show it if you want a production Api key from Giphy. <br />
 *Default:* `true`
+```jsx
+poweredByGiphy?: boolean;
+```
 
-`poweredByGiphyImage?: string;`<br />
+#### poweredByGiphyImage
 If you want to customize the **Powered by Giphy** badge, use this prop to set an alternative `src` for the image.
+```jsx
+poweredByGiphyImage?: string;
+```
 
-#### Text strings
+### Text strings
 
-`messageError?: string;`<br />
+#### messageError
 Generic error message when APIs call fails. <br />
 *Default:* `Oops! Something went wrong. Please, try again.`
+```jsx
+messageError?: string;
+```
 
-`messageLoading?: string;`<br />
+#### messageLoading
 Loading message only for accessibility purposes. <br />
 *Default:* `Loading...`
+```jsx
+messageLoading?: string;
+```
 
-`messageNoMatches?: string;`<br />
+#### messageNoMatches
 Message to tell users searched string returned empty array. <br />
 *Default:* `No matches found.`
+```jsx
+messageNoMatches?: string;
+```
 
-`searchPlaceholder?: string;`<br />
+#### searchPlaceholder
 Search input placeholder. <br />
 *Default:* `Search for GIFs`
+```jsx
+searchPlaceholder?: string;
+```
 
-#### CSS custom class names
+### CSS custom class names
 
-`listItemClassName?: string;`<br />
+#### listItemClassName
 Additional CSS class for the `<button>` that wrap the single image.
+```jsx
+listItemClassName?: string;
+```
 
-`listWrapperClassName?: string;`<br />
+#### listWrapperClassName
 Additional CSS class for the `<div>` that wrap the GIFs list.
+```jsx
+listWrapperClassName?: string;
+```
 
-`searchFormClassName?: string;`<br />
+#### searchFormClassName
 Additional CSS class for the `<form>` element.
+```jsx
+searchFormClassName?: string;
+```
 
-`wrapperClassName?: string;`<br />
+#### wrapperClassName
 Additional CSS class for the `<div>` that wrap the whole component.
+```jsx
+wrapperClassName?: string;
+```
 
 ### Responsive options
 `masonryConfig` prop allow you to define responsiveness of the component. This prop accept an array of objects describing the masonry's properties at different breakpoints.
