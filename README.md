@@ -217,7 +217,7 @@ Additional CSS class for the `<div>` that wrap the whole component.
 wrapperClassName?: string;
 ```
 
-### Responsive options
+## Responsive options
 `masonryConfig` prop allow you to define responsiveness of the component. This prop accept an array of objects describing the masonry's properties at different breakpoints.
 
 Each `object` in the array has the following properties:
@@ -242,7 +242,7 @@ When defining your properties, note the following:
 - properties must be listed **smallest to largest breakpoints** in a mobile first approach;
 - The size without the `mq` property is assumed to be your **smallest breakpoint, and must appear first.**
 
-### Note
+## Note
 
 React Giphy Searchbox uses [window.fetch()](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) to fetch data. Please keep in mind that if you need to support old browsers you have to add a global polyfill like [github/fetch](https://github.com/github/fetch) or [developit/unfetch](https://github.com/developit/unfetch).
 
