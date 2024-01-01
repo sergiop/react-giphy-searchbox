@@ -1,18 +1,10 @@
 <p align="center">
-  <img width="180" src="https://user-images.githubusercontent.com/2235134/62211432-b7b7ee00-b39e-11e9-84be-c0f2d1be87d6.png" alt="React Giphy Searchbox Logo">
+  <img width="190" src="https://github.com/sergiop/react-giphy-searchbox/assets/2235134/62465162-609d-4ee8-96ac-b0020fd84cbb" alt="React Giphy Searchbox Logo">
 </p>
 
-<h3 align="center">
-  Responsive and customizable search and select for Giphy's GIFs.
-</h3>
+# React Giphy Searchbox
 
-<p align="center">
-  <a href="https://sergiop.github.io/react-giphy-searchbox/">https://sergiop.github.io/react-giphy-searchbox/</a>
-</p>
-<br>
-
-
----
+Responsive and customizable search and select for Giphy's GIFs.
 
  **React Giphy Searchbox is a powerful react component that returns Giphy's GIF or Stickers in a Masonry grid layout.** Initially the component displays trending GIFs from Giphy's feed, when the the user starts typing something in the search field it switches to searched results. When an image is selected, a [GIF object](https://developers.giphy.com/docs/api/schema/#gif-object) is returned.
 
@@ -39,9 +31,7 @@ npm install react-giphy-searchbox --save
 ## Basic example
 
 ```javascript
-import React from 'react'
-import { render } from 'react-dom'
-import ReactGiphySearchbox from 'react-giphy-searchbox'
+import { ReactGiphySearchbox } from 'react-giphy-searchbox'
 
 const App = () => (
   <ReactGiphySearchbox
@@ -58,164 +48,164 @@ render(<App />, document.getElementById("root"))
 ### Required props
 
 #### apiKey
-Giphy's API key. Get your on https://developers.giphy.com.
 ```jsx
 apiKey: string;
 ```
+Giphy's API key. Get your on https://developers.giphy.com.
 
 #### onSelect
-A callback which is triggered whenever a GIF is selected. It returns a Gif object in the format specified for an image from Giphy's API.
 ```jsx
 onSelect: (item: GIFItem) => void;
 ```
+A callback which is triggered whenever a GIF is selected. It returns a Gif object in the format specified for an image from Giphy's API.
 
 ### Giphy options
 
 #### library
-Giphy's library: choose between `gifs` or `stickers`. <br />
-*Default:* `gifs`
 ```jsx
 library?: 'gifs' | 'stickers';
 ```
+Giphy's library: choose between `gifs` or `stickers`. <br />
+*Default:* `gifs`
 
 #### rating
-Filters results by [specified rating](https://developers.giphy.com/docs/optional-settings/#rating).<br />
-*Default:* `g`
 ```jsx
 rating?: 'y' | 'g' | 'pg' | 'pg-13' | 'r';
 ```
+Filters results by [specified rating](https://developers.giphy.com/docs/optional-settings/#rating).<br />
+*Default:* `g`
 
 #### imageRenditionFileType
-The image type to be returned. <br />
-*Default:* `gif`
 ```jsx
 imageRenditionFileType?: 'gif' | 'webp';
 ```
+The image type to be returned. <br />
+*Default:* `gif`
 
 #### imageRenditionName
-The type of [rendition](https://developers.giphy.com/docs/optional-settings/#rendition-guide) to be used. <br />
-*Default:* `fixed_width_downsampled`. <br />Please be careful with this setting, loading high quality gifs inside the masonry can reduce the performances.
 ```jsx
 imageRenditionName?: keyof Images;
 ```
+The type of [rendition](https://developers.giphy.com/docs/optional-settings/#rendition-guide) to be used. <br />
+*Default:* `fixed_width_downsampled`. <br />Please be careful with this setting, loading high quality gifs inside the masonry can reduce the performances.
 
 #### Other options
 
 #### autoFocus
-If true, the search form input field is focused by default on startup. <br />
-*Default:* `false`
 ```jsx
 autoFocus?: boolean;
 ```
+If true, the search form input field is focused by default on startup. <br />
+*Default:* `false`
 
 #### gifListHeight
-The height of the returned GIF list. <br />
-*Default:* `300px`
 ```jsx
 gifListHeight?: string;
 ```
+The height of the returned GIF list. <br />
+*Default:* `300px`
 
 #### gifPerPage
-The maximum number of images to return per page. <br />
-*Default:* `20`
 ```jsx
 gifPerPage?: number;
 ```
+The maximum number of images to return per page. <br />
+*Default:* `20`
 
 #### imageBackgroundColor
-Set the Giphy's image item background color, useful when `libray` prop is set to `stickers`, since stickers have transparent background. <br />
-*Default:* `#eee`
 ```jsx
 imageBackgroundColor?: string;
 ```
+Set the Giphy's image item background color, useful when `libray` prop is set to `stickers`, since stickers have transparent background. <br />
+*Default:* `#eee`
 
 #### loadingImage
-If you want to customize the loading spinner, use this prop to set an alternative `src` for the image.
 ```jsx
 loadingImage?: string;
 ```
+If you want to customize the loading spinner, use this prop to set an alternative `src` for the image.
 
 #### masonryConfig
-An array of objects describing the masonry's properties at different breakpoints. [See specific chapter for further info.](#responsive-options) <br />
-*Default:* `[{ columns: 2, imageWidth: 120, gutter: 5 }]`
 ```jsx
 masonryConfig?: MasonryConfig;
 ```
+An array of objects describing the masonry's properties at different breakpoints. [See specific chapter for further info.](#responsive-options) <br />
+*Default:* `[{ columns: 2, imageWidth: 120, gutter: 5 }]`
 
 #### onSearch
-A callback which is triggered whenever a search is performed. It returns the searched text string.
 ```jsx
 onSearch?: (query: string) => void;
 ```
+A callback which is triggered whenever a search is performed. It returns the searched text string.
 
 #### poweredByGiphy
-You can choose to display or not display the **Powered by Giphy** badge at the bottom. Note that you need to show it if you want a production Api key from Giphy. <br />
-*Default:* `true`
 ```jsx
 poweredByGiphy?: boolean;
 ```
+You can choose to display or not display the **Powered by Giphy** badge at the bottom. Note that you need to show it if you want a production Api key from Giphy. <br />
+*Default:* `true`
 
 #### poweredByGiphyImage
-If you want to customize the **Powered by Giphy** badge, use this prop to set an alternative `src` for the image.
 ```jsx
 poweredByGiphyImage?: string;
 ```
+If you want to customize the **Powered by Giphy** badge, use this prop to set an alternative `src` for the image.
 
 ### Text strings
 
 #### messageError
-Generic error message when APIs call fails. <br />
-*Default:* `Oops! Something went wrong. Please, try again.`
 ```jsx
 messageError?: string;
 ```
+Generic error message when APIs call fails. <br />
+*Default:* `Oops! Something went wrong. Please, try again.`
 
 #### messageLoading
-Loading message only for accessibility purposes. <br />
-*Default:* `Loading...`
 ```jsx
 messageLoading?: string;
 ```
+Loading message only for accessibility purposes. <br />
+*Default:* `Loading...`
 
 #### messageNoMatches
-Message to tell users searched string returned empty array. <br />
-*Default:* `No matches found.`
 ```jsx
 messageNoMatches?: string;
 ```
+Message to tell users searched string returned empty array. <br />
+*Default:* `No matches found.`
 
 #### searchPlaceholder
-Search input placeholder. <br />
-*Default:* `Search for GIFs`
 ```jsx
 searchPlaceholder?: string;
 ```
+Search input placeholder. <br />
+*Default:* `Search for GIFs`
 
 ### CSS custom class names
 
 #### listItemClassName
-Additional CSS class for the `<button>` that wrap the single image.
 ```jsx
 listItemClassName?: string;
 ```
+Additional CSS class for the `<button>` that wrap the single image.
 
 #### listWrapperClassName
-Additional CSS class for the `<div>` that wrap the GIFs list.
 ```jsx
 listWrapperClassName?: string;
 ```
+Additional CSS class for the `<div>` that wrap the GIFs list.
 
 #### searchFormClassName
-Additional CSS class for the `<form>` element.
 ```jsx
 searchFormClassName?: string;
 ```
+Additional CSS class for the `<form>` element.
 
 #### wrapperClassName
-Additional CSS class for the `<div>` that wrap the whole component.
 ```jsx
 wrapperClassName?: string;
 ```
+Additional CSS class for the `<div>` that wrap the whole component.
 
 ## Responsive options
 `masonryConfig` prop allow you to define responsiveness of the component. This prop accept an array of objects describing the masonry's properties at different breakpoints.
