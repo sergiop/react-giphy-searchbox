@@ -1,7 +1,7 @@
 import { ChangeEvent, FormEvent, useState } from 'react';
 
 export const useSearchForm = () => {
-  const [query, setInputs] = useState('');
+  const [query, setQuery] = useState<string>();
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     if (e) {
@@ -10,7 +10,7 @@ export const useSearchForm = () => {
   };
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     e.persist();
-    setInputs(e.target.value);
+    setQuery(e.target.value);
   };
 
   return {

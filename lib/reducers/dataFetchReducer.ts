@@ -7,60 +7,56 @@ interface State {
   data: GIFItem[];
 }
 
-type Action =
+export type Action =
   | {
-      type: 'FETCH_INIT' | 'FETCH_MORE_INIT' | 'FETCH_FAILURE';
+      type: 'INIT' | 'LOADING' | 'ERROR';
     }
   | {
-      type: 'FETCH_SUCCESS' | 'FETCH_MORE_SUCCESS';
+      type: 'SUCCESS';
       payload: GIFItem[];
       pagination: Pagination;
     };
 
+export const initialState = {
+  loading: true,
+  error: false,
+  lastPage: false,
+  data: [],
+};
+
 export const dataFetchReducer = (state: State, action: Action) => {
   switch (action.type) {
-    case 'FETCH_INIT':
+    case 'INIT':
+      return initialState;
+
+    case 'LOADING':
       return {
-        ...state,
         loading: true,
         error: false,
         lastPage: false,
-        data: [],
+        data: state.data,
       };
-    case 'FETCH_MORE_INIT':
+
+    case 'SUCCESS': {
+      const { pagination, payload } = action;
+      const { total_count, offset, count } = pagination; // eslint-disable-line @typescript-eslint/naming-convention
+
       return {
-        ...state,
-        loading: true,
-        error: false,
-        lastPage: false,
-      };
-    case 'FETCH_SUCCESS':
-      return {
-        ...state,
         loading: false,
         error: false,
-        data: action.payload,
-        lastPage:
-          action.pagination.total_count - action.pagination.offset <=
-          action.pagination.count,
+        lastPage: total_count - offset <= count,
+        data: [...state.data, ...payload],
       };
-    case 'FETCH_MORE_SUCCESS':
+    }
+
+    case 'ERROR':
       return {
-        ...state,
-        loading: false,
-        error: false,
-        data: [...state.data, ...action.payload],
-        lastPage:
-          action.pagination.total_count - action.pagination.offset <=
-          action.pagination.count,
-      };
-    case 'FETCH_FAILURE':
-      return {
-        ...state,
         loading: false,
         error: true,
         lastPage: false,
+        data: state.data,
       };
+
     default:
       throw new Error('Unknown action type');
   }

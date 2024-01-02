@@ -6,7 +6,7 @@ interface SearchFormProps {
   placeholder: string;
   searchFormClassName: string | undefined;
   setValue: (e: ChangeEvent<HTMLInputElement>) => void;
-  value: string;
+  value: string | undefined;
   autoFocus: boolean;
 }
 

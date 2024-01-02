@@ -134,9 +134,9 @@ An array of objects describing the masonry's properties at different breakpoints
 
 #### onSearch
 ```jsx
-onSearch?: (query: string) => void;
+onSearch?: (query?: string) => void;
 ```
-A callback which is triggered whenever a search is performed. It returns the searched text string.
+A callback which is triggered whenever a search is performed. It returns the searched text.
 
 #### poweredByGiphy
 ```jsx
