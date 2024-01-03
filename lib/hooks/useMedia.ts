@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { MasonryConfig } from '../types/masonry';
 
 export const useMedia = (
@@ -8,12 +8,12 @@ export const useMedia = (
 ) => {
   const mediaQueryLists = queries.map((q) => window.matchMedia(q));
 
-  const getValue = () => {
+  const getValue = useCallback(() => {
     // Get index of first media query that matches
     const index = mediaQueryLists.findIndex((mql) => mql.matches);
     // Return related value or defaultValue if none
     return typeof values[index] !== 'undefined' ? values[index] : defaultValue;
-  };
+  }, [defaultValue, mediaQueryLists, values]);
 
   // State and setter for matched value
   const [value, setValue] = useState(getValue);
@@ -26,7 +26,7 @@ export const useMedia = (
 
     // Remove listeners on cleanup
     return () => mediaQueryLists.forEach((mql) => mql.removeListener(handler));
-  }, []);
+  }, [getValue, mediaQueryLists]);
 
   return value;
 };
