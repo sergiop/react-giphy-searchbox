@@ -30,7 +30,7 @@ export function MasonryLayout({
   }, [children, sizes]);
 
   return (
-    <div ref={container} data-testid="MasonryLayoutContainer">
+    <div ref={container} data-cy="gif-list">
       {children}
     </div>
   );

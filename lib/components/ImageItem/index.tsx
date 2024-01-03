@@ -51,7 +51,7 @@ export function ImageItem({
       onClick={() => onSelect(item)}
     >
       <img
-        data-testid="ImageItemImage"
+        data-cy="gif-image"
         width={image.width}
         height={image.height}
         alt={item.title}

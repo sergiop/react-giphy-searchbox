@@ -11,7 +11,7 @@ export function Spinner({ show, message, image }: SpinnerProps) {
   return (
     show && (
       <div role="status" className={styles.wrapper}>
-        <div className={styles.spinner} data-testid="Spinner">
+        <div className={styles.spinner} data-cy="spinner">
           {image ? <img src={image} alt="Loading icon" /> : <SpinnerIcon />}
         </div>
         <div className={styles.text} data-testid="SpinnerText">

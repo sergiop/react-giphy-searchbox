@@ -49,7 +49,7 @@ export const useGiphyRestApi = ({
     const endpoint = debouncedQuery ? 'search' : 'trending';
 
     fetch(
-      `https://api.giphy.com/v1/${library}/${endpoint}?api_key=${apiKey}&limit=${gifPerPage}&rating=${rating}&offset=${offset}&q=${debouncedQuery}`,
+      `https://api.giphy.com/v1/${library}/${endpoint}?api_key=${apiKey}&limit=${gifPerPage}&offset=${offset}&rating=${rating}&q=${debouncedQuery}`,
     )
       .then<GiphyResponse>((response) => {
         if (!response.ok) {
